@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "799707504173",
+    "firebase_url": "https://calendariodereservas-1e910.firebaseio.com",
+    "project_id": "calendariodereservas-1e910",
+    "storage_bucket": "calendariodereservas-1e910.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799707504173:android:8b3af1465f9dbaea",
+        "android_client_info": {
+          "package_name": "peru.volcanes.igp.eventos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799707504173-f0r3nloofepo6rqgbld9j9f2co8kie6a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCz9CLefcWyfQRsUb6nrerwdNqrcAB-FjU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
