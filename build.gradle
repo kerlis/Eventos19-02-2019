@@ -39,6 +39,7 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.google.gms:google-services:3.0.0'
         // classpath 'com.google.gms:google-services:4.0.1'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
 
 
     }
@@ -48,13 +49,15 @@ allprojects {
         google()
         jcenter()
         maven {
-            url 'https://maven.fabric.io/public'
+            url 'https://jitpack.io'
+
             //url 'https://jitpack.io'
         }
         //    maven {
         //url 'https://maven.fabric.io/public'
         //        url 'https://jitpack.io'
         // }
+        maven { url 'https://maven.fabric.io/public' }
     }
 }
 

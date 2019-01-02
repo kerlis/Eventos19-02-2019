@@ -13,54 +13,65 @@
 
         <RelativeLayout android:layout_width="match_parent"
             android:layout_height="wrap_content">
-<RelativeLayout android:layout_width="match_parent"
-    android:id="@+id/linea1"
-    android:padding="8dp"
-    android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_alignParentLeft="true"
-                android:layout_toLeftOf="@+id/vemail"
-                 android:id="@+id/vname"
-                android:textColor="@color/colorPrimaryDark"
-                android:gravity="left"
-                android:layout_width="wrap_content"
-                android:text="name"
-                android:textSize="11dp"
 
-                android:layout_height="wrap_content" />
 
-            <TextView
-                android:id="@+id/vemail"
-                android:gravity="right"
+            <RelativeLayout android:layout_width="match_parent"
+                android:id="@+id/linea1"
+                android:padding="8dp"
+                android:layout_height="wrap_content">
 
-                android:layout_alignParentRight="true"
-                android:text="email"
-                android:textSize="11dp"
+                        <TextView
+                            android:layout_alignParentLeft="true"
+                            android:layout_toLeftOf="@+id/vemail"
+                            android:id="@+id/vname"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:gravity="left"
+                            android:layout_width="wrap_content"
+                            android:text="name"
+                            android:textSize="11dp"
+                            android:layout_height="wrap_content" />
 
-                android:textStyle="bold|italic"
-                android:textColor="@color/colorPrimaryDark"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"  />
+                        <TextView
+                            android:id="@+id/vemail"
+                            android:gravity="right"
+                            android:layout_alignParentRight="true"
+                            android:text="email"
+                            android:textSize="11dp"
+                            android:textStyle="bold|italic"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"  />
 
-</RelativeLayout>
+            </RelativeLayout>
 
-        <RelativeLayout android:layout_width="match_parent"
-            android:id="@+id/linea2"
-            android:layout_below="@+id/linea1"
-            android:padding="8dp"
+            <RelativeLayout
+                android:id="@+id/linea2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linea1"
+                android:padding="8dp">
 
-             android:layout_height="wrap_content">
-        <TextView
-            android:text="TextView"
-            android:gravity="left"
-            android:layout_marginLeft="2dp"
-            android:textSize="11dp"
+                <TextView
+                    android:id="@+id/vaddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:gravity="left"
+                    android:text="TextView"
+                    android:textSize="11dp" />
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/vaddress" />
-        </RelativeLayout>
+                <Button
+                    android:id="@+id/ir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="60dp"
+                    android:layout_toEndOf="@+id/vaddress"
+                    android:text="Button" />
+            </RelativeLayout>
+
+
         </RelativeLayout>
 
 

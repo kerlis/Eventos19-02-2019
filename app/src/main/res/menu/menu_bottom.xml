@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/buscar"
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="Add"
+        app:showAsAction="ifRoom"/>
+
+
+    <item android:id="@+id/configuracion"
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="Conf"
+        app:showAsAction="ifRoom"/>
+
+
+    <item android:id="@+id/misreservas"
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="C"
+        app:showAsAction="ifRoom"/>
+
+</menu>

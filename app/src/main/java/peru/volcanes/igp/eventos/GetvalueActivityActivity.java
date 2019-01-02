@@ -111,7 +111,7 @@ public class GetvalueActivityActivity extends AppCompatActivity{
 
     public void consulta(String urlString) {
 
-        myRef = databaseerupciones.getReference("usuarios").child("reporteactividad");
+        myRef = databaseerupciones.getReference("reservas").child("reportes");
         myRef.addValueEventListener(new com.google.firebase.database.ValueEventListener() {
             @Override
             public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {
@@ -149,8 +149,9 @@ public class GetvalueActivityActivity extends AppCompatActivity{
             }
         });
 
-       Toast.makeText(getApplicationContext(), urlString, Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(GetvalueActivityActivity.this, Elegirhoraa.class);
+         Intent intent = new Intent(GetvalueActivityActivity.this, Intropage.class);
+        intent.putExtra("ACTIVIDAD_RECIENTE", urlString);
+
         startActivity(intent);
 
     }
