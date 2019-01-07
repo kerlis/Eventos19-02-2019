@@ -1,15 +1,20 @@
 package peru.volcanes.igp.eventos;
 
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CalendarView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -28,6 +33,18 @@ import peru.volcanes.igp.eventos.m_ui.Canchasadapter;
 import static android.widget.Toast.LENGTH_LONG;
 
 public class Seleccionarcanchas extends AppCompatActivity {
+
+    private RelativeLayout mDrawerBlock;
+
+    Toolbar toolbar;
+    private CharSequence mDrawerTitle;
+    private CharSequence mTitle;
+    android.support.v7.app.ActionBarDrawerToggle mDrawerToggle;
+    ImageView sliderz;
+    private String[] mNavigationDrawerItemTitles;
+    private DrawerLayout mDrawerLayout;
+
+
     ListView reservas;
     private final String TAG = "getvale";
     private CalendarView nCalendarView;
@@ -142,6 +159,27 @@ public class Seleccionarcanchas extends AppCompatActivity {
                     }
                 }
         );
+
+
+
+
+
+        sliderz = (ImageView) findViewById(R.id.sliderz);
+        mTitle = mDrawerTitle = getTitle();
+        mNavigationDrawerItemTitles= getResources().getStringArray(R.array.navigation_drawer_items_array);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerBlock = (RelativeLayout) findViewById(R.id.mDrawerBlock);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
+        setupDrawerToggle();
+        sliderz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mDrawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+
+
 
 
 
@@ -272,5 +310,11 @@ public class Seleccionarcanchas extends AppCompatActivity {
         //startActivity(intent);
 
     }
+
+    void setupDrawerToggle(){
+        mDrawerToggle = new android.support.v7.app.ActionBarDrawerToggle(this,mDrawerLayout,toolbar,R.string.app_name, R.string.app_name);
+        mDrawerToggle.syncState();
+    }
+
 
 }

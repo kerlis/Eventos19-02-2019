@@ -4,6 +4,9 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
 
+        <item name="colorControlNormal">#ffffff</item>
+        <item name="colorControlActivated">#ffffff</item>
+        <item name="colorControlHighlight">#ffffff</item>
 
 
 
@@ -12,7 +15,10 @@
     </style>
 
 
-
+    <style name="menuopcionestext">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/negro</item>
+    </style>
 <!--
     <style name="CalenderViewCustom" parent="Theme.AppCompat">
         <item name="colorAccent">@android:color/holo_blue_dark</item>
@@ -29,7 +35,24 @@
     </style>
 -->
 
+    <style name="contenedormenuopcion">
+        <item name="android:padding">10dp</item>
+    </style>
 
+
+    <style name="titulo_layer_text">
+        <item name="android:textSize">18dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/blanco</item>
+    </style>
+
+    <style name="logoigp_normal_port2">
+        <item name="android:layout_width">52dp</item>
+        <item name="android:layout_height">54dp</item>
+        <item name="android:layout_marginRight">12dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
 
     <style name="margenes">
         <item name="android:paddingLeft">5dp</item>

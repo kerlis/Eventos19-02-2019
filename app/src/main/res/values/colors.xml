@@ -8,8 +8,11 @@
     <color name="blanco">#ffffff</color>
     <color name="negro">#000000</color>
 
+    <color name="black_v">#000000</color>
+    <color name="celeste">#00b7ff</color>
 
     <color name="verde">#00cf7c</color>
     <color name="rojo">#d62e2e</color>
+    <color name="azulbackground">#001665</color>
 
 </resources>

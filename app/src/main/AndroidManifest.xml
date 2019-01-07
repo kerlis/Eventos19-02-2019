@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="peru.volcanes.igp.eventos">
 
+    <uses-permission android:name="com.htc.launcher.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="com.htc.launcher.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
     <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" />
 
@@ -53,7 +55,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:supportsRtl">
-        <activity android:name=".Seleccionarcanchas">
+        <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -63,7 +65,9 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".Elegirhoraa" />
         <activity android:name=".Intropage" />
-        <activity android:name=".GetvalueActivityActivity"></activity>
+        <activity android:name=".GetvalueActivityActivity" />
+        <activity android:name=".Seleccionarcanchas" />
+        <activity android:name=".Registrarusuario"></activity>
     </application>
 
 </manifest>

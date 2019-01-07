@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="5dp"
+    android:paddingRight="0dp"
+    android:id="@+id/encabezado"
+    android:background="@color/verde">
+
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView android:layout_width="match_parent"
+            android:src="@drawable/logodeportcenter"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+
+            android:layout_height="100dp"
+            android:id="@+id/ima"/>
+
+        <EditText
+            android:id="@+id/usuario"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/ima"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="15dp"
+            android:background="@color/blanco"
+            android:hint="  USUARIO"
+            android:padding="5dp" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/usuario"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:background="@color/blanco"
+            android:hint="  PASSWORD"
+            android:inputType="textPassword"
+            android:padding="5dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:id="@+id/login"
+            android:layout_height="65dp"
+            android:layout_below="@+id/password"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:text="LOGIN" />
+
+        <TextView
+            android:id="@+id/notienecuenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:text="No tien Cuenta aun? / Registrese"
+            android:textAllCaps="true"
+            android:textColor="@color/com_facebook_button_send_background_color_pressed"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

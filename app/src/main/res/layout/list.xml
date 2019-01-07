@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="230dp"
+    android:layout_height="match_parent">
+    <RelativeLayout android:layout_width="match_parent"
+        android:id="@+id/blocke0"
+        android:background="@color/blanco"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_height="180dp"
+            android:src="@drawable/logomenu">
+        </ImageView>
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="match_parent"
+         android:id="@+id/blocke1"
+         android:layout_below="@id/blocke0"
+         android:background="@drawable/opcionesbackground"
+         style="@style/contenedormenuopcion"
+         android:layout_height="wrap_content">
+         <RelativeLayout
+             android:layout_width="40dp"
+             android:id="@+id/opcion1"
+             android:layout_height="wrap_content">
+             <ImageView
+                 android:id="@+id/info_iconvolcan"
+                 android:layout_width="27dp"
+                 android:layout_centerVertical="true"
+                 android:layout_height="27dp"
+                 android:paddingTop="@dimen/nav_header_vertical_spacing"
+                 android:src="@drawable/moreinfo" />
+         </RelativeLayout>
+
+
+         <RelativeLayout
+             android:layout_toEndOf="@+id/opcion1"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+             <TextView android:layout_width="wrap_content"
+                 android:text="Reservar Cancha"
+                 android:layout_centerVertical="true"
+                 style="@style/menuopcionestext"
+                 android:layout_height="wrap_content">
+             </TextView>
+         </RelativeLayout>
+
+     </RelativeLayout>
+
+
+
+
+
+
+
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_below="@+id/blocke1"
+         android:id="@+id/blocke01"
+        android:background="@drawable/opcionesbackground"
+        style="@style/contenedormenuopcion"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:id="@+id/opcion01"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/info_icon01"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                android:src="@drawable/moreinfo" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_toEndOf="@+id/opcion01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView android:layout_width="wrap_content"
+                android:text="Acerca de "
+                style="@style/menuopcionestext"
+                android:layout_height="wrap_content">
+            </TextView>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+
+     <RelativeLayout android:layout_width="match_parent"
+         android:layout_below="@+id/blocke01"
+         android:id="@+id/blocke2"
+         android:background="@drawable/opcionesbackground"
+         style="@style/contenedormenuopcion"
+         android:layout_height="wrap_content">
+         <RelativeLayout
+             android:layout_width="40dp"
+             android:id="@+id/opcion2"
+             android:layout_height="wrap_content">
+                 <ImageView
+                     android:id="@+id/info_icon"
+                     android:layout_width="22dp"
+                     android:layout_height="22dp"
+                     android:paddingTop="@dimen/nav_header_vertical_spacing"
+                     android:src="@drawable/info3" />
+          </RelativeLayout>
+         <RelativeLayout
+             android:layout_toEndOf="@+id/opcion2"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+             <TextView android:layout_width="wrap_content"
+                 android:text="Acerca de "
+                 style="@style/menuopcionestext"
+                 android:layout_height="wrap_content">
+             </TextView>
+         </RelativeLayout>
+     </RelativeLayout>
+     <RelativeLayout android:layout_width="match_parent"
+         android:layout_below="@+id/blocke2"
+         android:id="@+id/blocke4"
+         android:background="@drawable/opcionesbackground"
+         style="@style/contenedormenuopcion"
+         android:layout_height="wrap_content">
+         <RelativeLayout
+             android:layout_width="40dp"
+             android:id="@+id/opcion4"
+             android:layout_height="wrap_content">
+             <ImageView
+                 android:id="@+id/info_iconajustes"
+                 android:layout_width="22dp"
+                 android:layout_height="22dp"
+                 android:paddingTop="@dimen/nav_header_vertical_spacing"
+                 android:src="@drawable/configuracion" />
+         </RelativeLayout>
+         <RelativeLayout
+             android:layout_toEndOf="@+id/opcion4"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+             <TextView android:layout_width="wrap_content"
+                 android:text="Configuraciones"
+                 style="@style/menuopcionestext"
+                 android:layout_height="wrap_content">
+             </TextView>
+         </RelativeLayout>
+     </RelativeLayout>
+
+     <RelativeLayout android:layout_width="match_parent"
+         android:layout_below="@+id/blocke4"
+         android:id="@+id/blocke5"
+         android:background="@drawable/opcionesbackground"
+         style="@style/contenedormenuopcion"
+         android:layout_height="wrap_content">
+         <RelativeLayout
+             android:layout_width="40dp"
+             android:id="@+id/opcion5"
+             android:layout_height="wrap_content">
+             <ImageView
+                 android:id="@+id/info_iconquestions"
+                 android:layout_width="22dp"
+                 android:layout_height="22dp"
+                 android:paddingTop="@dimen/nav_header_vertical_spacing"
+                 android:src="@drawable/social2" />
+         </RelativeLayout>
+         <RelativeLayout
+             android:layout_toEndOf="@+id/opcion5"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+             <TextView android:layout_width="wrap_content"
+                 android:text="Glosario"
+                 style="@style/menuopcionestext"
+                 android:layout_height="wrap_content">
+             </TextView>
+         </RelativeLayout>
+     </RelativeLayout>
+
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_below="@+id/blocke5"
+        android:id="@+id/blocke9"
+        android:background="@drawable/opcionesbackground"
+        style="@style/contenedormenuopcion"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:id="@+id/opcion10"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/info_iconquestions251"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                android:src="@drawable/social2" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_toEndOf="@+id/opcion10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView android:layout_width="wrap_content"
+                android:text="Redes sociales"
+                style="@style/menuopcionestext"
+                android:layout_height="wrap_content">
+            </TextView>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_below="@+id/blocke9"
+        android:id="@+id/blocke6"
+        android:background="@drawable/opcionesbackground"
+        style="@style/contenedormenuopcion"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:id="@+id/opcion6"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/info_iconajustes6"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                android:src="@drawable/signouticon" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_toEndOf="@+id/opcion6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView android:layout_width="wrap_content"
+                android:text="Salir"
+                style="@style/menuopcionestext"
+                android:layout_height="wrap_content">
+            </TextView>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

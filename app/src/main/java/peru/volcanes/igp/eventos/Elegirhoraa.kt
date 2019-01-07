@@ -21,14 +21,26 @@ import com.prolificinteractive.materialcalendarview.CalendarDay
 import android.widget.Toast
 import android.support.annotation.NonNull
 import android.support.v4.content.ContextCompat
+import android.support.v4.view.GravityCompat
+import android.support.v4.widget.DrawerLayout
+import android.support.v7.widget.Toolbar
+import android.text.TextUtils
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener
 import com.prolificinteractive.materialcalendarview.OnMonthChangedListener
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.truncate
+
+import peru.volcanes.igp.eventos.m_model.reservas
 
 class Elegirhoraa : AppCompatActivity()  {
     lateinit var valorhorario: String
     lateinit var texto_horario1: String
+
+    lateinit var calendar: Calendar
+    lateinit var calendar2: Calendar
+
+    lateinit var reservas: reservas
 
 
     var intensidad: String = ""
@@ -39,20 +51,49 @@ class Elegirhoraa : AppCompatActivity()  {
     internal lateinit var databaseerupciones: FirebaseDatabase
     internal lateinit var myRef: DatabaseReference
     var ct: Int = 0
-    lateinit var dia: String
-    lateinit var mes: String
+    var dia: String =""
+    var mes: String =""
     var valint: Int = 0
     lateinit var valtostring: String
-    lateinit var anio: String
+    var anio: String = ""
     @SuppressLint("ResourceAsColor")
+
+
+
+
+    lateinit var  dia2: String
+    lateinit var mes2: String
+    var valint2: Int = 0
+    lateinit var valtostring2: String
+    lateinit var anio2: String
+
+
+
+    lateinit var local_val:String
+    lateinit var distrito_val:String
+    lateinit var nombre_val:String
+
+    lateinit var datetime: String
+
+    private var mDrawerBlock: RelativeLayout? = null
+
+    internal var toolbar: Toolbar? = null
+    private var mDrawerTitle: CharSequence? = null
+    private var mTitle: CharSequence? = null
+    var mDrawerToggle: android.support.v7.app.ActionBarDrawerToggle? = null
+    internal lateinit var sliderz: ImageView
+    internal    var mNavigationDrawerItemTitles: Array<String>? = null
+    private  var mDrawerLayout: DrawerLayout? = null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_elegirhoraa)
 
         val i = this.intent
-        val local_val: String = i.extras!!.getString("LOCAL")
-        val distrito_val: String = i.extras!!.getString("DISTRITO")
-        val nombre_val: String = i.extras!!.getString("NOMBRE")
+         local_val = i.extras!!.getString("LOCAL")
+         distrito_val = i.extras!!.getString("DISTRITO")
+         nombre_val = i.extras!!.getString("NOMBRE")
 
         val local: TextView = findViewById(R.id.local) as TextView
         val cancha: TextView = findViewById(R.id.cancha) as TextView
@@ -95,15 +136,55 @@ class Elegirhoraa : AppCompatActivity()  {
 
         var calendario: MaterialCalendarView   = findViewById(R.id.calendarView) as MaterialCalendarView
 
-        var calendar: Calendar  = Calendar.getInstance()
+          calendar     = Calendar.getInstance()
 
-        var calendar2: Calendar  = Calendar.getInstance()
+          calendar2  = Calendar.getInstance()
+
+
+       // Toast.makeText(this, calendar2.toString() , Toast.LENGTH_LONG).show()
+
         calendario.setDateSelected(calendar.time, true)
 
 
+     //   calendario.setDateSelected(calendar.time, true)
 
+
+
+       var simplef:SimpleDateFormat  = SimpleDateFormat("dd-MM-yyyy")
+       datetime    = simplef.format(calendar2.time)
+/*
+
+        calendar.time.day
+
+        dia = calendar.time.day.toString()
+        mes = calendar.time.month.toString()
+        valint = mes.toInt() + 1
+        valtostring = valint.toString()
+        anio = calendar.time.year.toString()
+
+        */
+        /*
+        calendar2.time.day
+
+        dia = calendar2.time.day.toString()
+        mes = calendar2.time.month.toString()
+        valint = mes.toInt() + 1
+        valtostring = valint.toString()
+        anio = calendar2.time.year.toString()
+*/
         if(calendar == calendar2){
 
+
+
+
+            dia2 = calendario.selectedDate.day.toString()
+            mes2 = calendario.selectedDate.month.toString()
+            valint2 = mes2.toInt()
+            valtostring2 = valint2.toString()
+            anio2 = calendario.selectedDate.year.toString()
+
+
+            /*
             calendar.time.day
 
             dia = calendar.time.day.toString()
@@ -111,6 +192,10 @@ class Elegirhoraa : AppCompatActivity()  {
             valint = mes.toInt() + 1
             valtostring = valint.toString()
             anio = calendar.time.year.toString()
+*/
+
+            Toast.makeText(this, dia2+mes2+anio2 , Toast.LENGTH_LONG).show()
+
 
             horario1.setBackgroundColor(Color.parseColor("#00cf7c"))
             horario2.setBackgroundColor(Color.parseColor("#00cf7c"))
@@ -126,19 +211,19 @@ class Elegirhoraa : AppCompatActivity()  {
             horario11.setBackgroundColor(Color.parseColor("#00cf7c"))
             horario12.setBackgroundColor(Color.parseColor("#00cf7c"))
 
-            Verificardisponibilidad(texto_horario1, dia+valtostring+anio)
-            Verificardisponibilidad2(texto_horario2, dia+valtostring+anio)
-            Verificardisponibilidad3(texto_horario3, dia+valtostring+anio)
+            Verificardisponibilidad(texto_horario1, dia2+valtostring2+anio2)
+            Verificardisponibilidad2(texto_horario2, dia2+valtostring2+anio2)
+            Verificardisponibilidad3(texto_horario3, dia2+valtostring2+anio2)
 
-            Verificardisponibilidad4(texto_horario4, dia+valtostring+anio)
-            Verificardisponibilidad5(texto_horario5, dia+valtostring+anio)
-            Verificardisponibilidad6(texto_horario6, dia+valtostring+anio)
-            Verificardisponibilidad7(texto_horario7, dia+valtostring+anio)
-            Verificardisponibilidad8(texto_horario8, dia+valtostring+anio)
-            Verificardisponibilidad9(texto_horario9, dia+valtostring+anio)
-            Verificardisponibilidad10(texto_horario10, dia+valtostring+anio)
-            Verificardisponibilidad11(texto_horario11, dia+valtostring+anio)
-            Verificardisponibilidad12(texto_horario12, dia+valtostring+anio)
+            Verificardisponibilidad4(texto_horario4, dia2+valtostring2+anio2)
+            Verificardisponibilidad5(texto_horario5, dia2+valtostring2+anio2)
+            Verificardisponibilidad6(texto_horario6, dia2+valtostring2+anio2)
+            Verificardisponibilidad7(texto_horario7, dia2+valtostring2+anio2)
+            Verificardisponibilidad8(texto_horario8, dia2+valtostring2+anio2)
+            Verificardisponibilidad9(texto_horario9, dia2+valtostring2+anio2)
+            Verificardisponibilidad10(texto_horario10, dia2+valtostring2+anio2)
+            Verificardisponibilidad11(texto_horario11, dia2+valtostring2+anio2)
+            Verificardisponibilidad12(texto_horario12, dia2+valtostring2+anio2)
 
         }
 
@@ -186,6 +271,21 @@ class Elegirhoraa : AppCompatActivity()  {
 
         horario1.setOnClickListener {
             valorhorario = horario1.getText() as String;
+          //  var sdf : SimpleDateFormat =   SimpleDateFormat("dd/MM/yyyy");
+          //  var dse : String = sdf.format(Date(calendar.da))
+
+/*
+
+            dia = date.day.toString()
+            mes = date.month.toString()
+            valint = mes.toInt() + 1
+            valtostring = valint.toString()
+            anio = date.year.toString()
+            */
+
+
+
+
             //  Toast.makeText(this, valorhorario, Toast.LENGTH_LONG).show();
             var ds  = horario1.background
             var d = (ds as ColorDrawable).color
@@ -193,7 +293,7 @@ class Elegirhoraa : AppCompatActivity()  {
 
 
             if(d.toString() == "-16724100"){
-                showNewNameDialog()
+                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio)
             }
             else{
                 Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
@@ -212,7 +312,7 @@ class Elegirhoraa : AppCompatActivity()  {
 
 
             if(d.toString() == "-16724100"){
-                showNewNameDialog()
+                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio)
             }
             else{
                 Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
@@ -231,7 +331,7 @@ class Elegirhoraa : AppCompatActivity()  {
 
 
             if(d.toString() == "-16724100"){
-                showNewNameDialog()
+                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio)
             }
             else{
                 Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
@@ -242,6 +342,18 @@ class Elegirhoraa : AppCompatActivity()  {
 
 
 
+
+        sliderz = findViewById<View>(R.id.sliderz) as ImageView
+        mDrawerTitle = title
+        mTitle = mDrawerTitle
+        mNavigationDrawerItemTitles = resources.getStringArray(R.array.navigation_drawer_items_array)
+        mDrawerLayout = findViewById<View>(R.id.drawer_layout) as DrawerLayout
+        mDrawerBlock = findViewById<View>(R.id.mDrawerBlock) as RelativeLayout
+        mDrawerLayout = findViewById<View>(R.id.drawer_layout) as DrawerLayout
+        mDrawerLayout!!.setDrawerListener(mDrawerToggle)
+        setupDrawerToggle()
+        sliderz.setOnClickListener { mDrawerLayout!!.openDrawer(GravityCompat.START) }
+
     }
 
 
@@ -251,7 +363,7 @@ class Elegirhoraa : AppCompatActivity()  {
 
 
     @SuppressLint("SetTextI18n")
-    fun showNewNameDialog() {
+    fun showNewNameDialog(horarioval: String, fechaval:String) {
         val dialogBuilder = AlertDialog.Builder(this)
         val inflater = this.layoutInflater
         val dialogView = inflater.inflate(R.layout.dislogo, null)
@@ -263,12 +375,57 @@ class Elegirhoraa : AppCompatActivity()  {
         val cancha = dialogView.findViewById<View>(R.id.cancha) as TextView
         val distrito = dialogView.findViewById<View>(R.id.distrito) as TextView
 
-        horario.text = "dfref"
-        fecha.text = "dfref"
-        local.text = "dfref"
 
-        cancha.text = "dfref"
-        distrito.text = "dfref"
+        val botonpagar = dialogView.findViewById<View>(R.id.pagarahora) as Button
+        val botonsoloreservar = dialogView.findViewById<View>(R.id.soloreservar) as Button
+
+
+        horario.text = horarioval
+        local.text = local_val
+
+        cancha.text = nombre_val
+        distrito.text = distrito_val
+
+/*
+        dia2 = calendario.selectedDate.day.toString()
+        mes2 = calendario.selectedDate.month.toString()
+        valint2 = mes.toInt()
+        valtostring2 = valint2.toString()
+        anio2 = calendario.selectedDate.year.toString()
+*/
+        var valk:String =  dia+mes+anio
+        if(valk.length < 4){
+            fecha.text = dia2+mes2+anio2
+        }
+        else{
+            fecha.text =  dia+mes+anio
+        }
+
+
+        botonpagar.setOnClickListener {
+
+                    var ref = FirebaseDatabase.getInstance().getReference("reservas").child("reportes")
+
+                    var reporteid = ref.push().key
+
+
+                    if(valk.length < 4){
+                        fecha.text = dia2+mes2+anio2
+                        reservas    =   reservas(dia2+mes2+anio2 , horarioval,distrito_val,distrito_val+"_"+distrito_val,distrito_val,dia2+mes2+anio2+"_"+horarioval,nombre_val,local_val)
+                    }
+                    else{
+                        fecha.text =  dia+mes+anio
+                          reservas    =   reservas(dia+mes+anio , horarioval,distrito_val,distrito_val+"_"+distrito_val,distrito_val,dia+mes+anio+"_"+horarioval,nombre_val,local_val)
+                    }
+
+
+                    ref.child(reporteid).setValue(reservas).addOnCompleteListener {
+                        Toast.makeText(this, "Artist added", Toast.LENGTH_LONG).show();
+
+                    }
+
+        }
+
 
 
         val b = dialogBuilder.create()
@@ -924,7 +1081,7 @@ class Elegirhoraa : AppCompatActivity()  {
     @SuppressLint("ResourceAsColor")
     fun mostrar_ult_sismo12() {
         var prefs = getSharedPreferences("ultsismok", Context.MODE_PRIVATE)
-        intensidad = prefs.getString("incategoriak", "")
+        intensidad = prefs.getString("incategh,jhoriak", "")
         hora = prefs.getString("inreferenciak", "")
         Toast.makeText(this, intensidad + hora, Toast.LENGTH_LONG).show()
 
@@ -937,5 +1094,12 @@ class Elegirhoraa : AppCompatActivity()  {
 
         }
     }
+
+
+    internal fun setupDrawerToggle() {
+        mDrawerToggle = android.support.v7.app.ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.app_name, R.string.app_name)
+        mDrawerToggle!!.syncState()
+    }
+
 
 }
