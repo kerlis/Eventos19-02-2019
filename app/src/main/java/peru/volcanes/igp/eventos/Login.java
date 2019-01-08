@@ -1,10 +1,11 @@
 package peru.volcanes.igp.eventos;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.StrictMode;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,9 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.firebase.messaging.FirebaseMessaging;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -23,7 +22,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
@@ -32,49 +30,44 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import retrofit2.http.FormUrlEncoded;
-
 import static android.content.ContentValues.TAG;
 
 public class Login extends AppCompatActivity {
     private OkHttpClient client = new OkHttpClient();
-
-
-
     String TAG_REGISTER;
-
-
     String json;
     private static final String BASE_URL = "http://arteypixel.com/appreserva/consultarusuario.php";
-
     EditText usuario;
     EditText password;
     Button   logbutton;
     TextView notienecuenta;
-
     String valor1,valor2;
 
-     @SuppressLint("WrongViewCast")
-     @Override
+    String PREF_Name = "myprefs";
+    SharedPreferences mypref = null;
+
+    @SuppressLint("WrongViewCast")
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
+
+
+
         usuario = findViewById(R.id.usuario);
         password = findViewById(R.id.password);
         logbutton = findViewById(R.id.login);
         notienecuenta = findViewById(R.id.notienecuenta);
 
-
         logbutton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View arg0) {
-
                 valor1 =  usuario.getText().toString();
                 valor2 =  password.getText().toString();
-
              //   detecta_sismo(valor1, valor2);
-
                 registerUser(valor1, valor2);
-
             }
         });
 
@@ -83,19 +76,10 @@ public class Login extends AppCompatActivity {
          notienecuenta.setOnClickListener(new View.OnClickListener(){
              @Override
              public void onClick(View arg0) {
-
                  Intent intent7 = new Intent(Login.this,Registrarusuario.class);
                  startActivity(intent7);
-
              }
          });
-
-
-
-
-
-
-
 
      }
 
@@ -177,6 +161,16 @@ public class Login extends AppCompatActivity {
                     if(resp.length() <= 13){
                         Intent intent7 = new Intent(Login.this,Seleccionarcanchas.class);
                         startActivity(intent7);
+
+                        final SharedPreferences sharedrf = PreferenceManager.getDefaultSharedPreferences(Login.this);
+                        SharedPreferences.Editor editor = sharedrf.edit();
+                        editor.putBoolean("Registered", true);
+                        editor.putString("Username",resp);
+                        editor.putString("Password", resp);
+                        editor.apply();
+
+
+
                     }
                     else{
                         ver2(resp);

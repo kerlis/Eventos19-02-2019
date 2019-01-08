@@ -27,9 +27,16 @@
         </RelativeLayout>
 
 
+        <TextView android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/encabezado2"
+
+            android:id="@+id/usuario"/>
+
+
         <Spinner
             android:id="@+id/spinner"
-            android:layout_below="@+id/encabezado2"
+            android:layout_below="@+id/usuario"
 
             style="@style/spinner_style"
             android:layout_width="match_parent"

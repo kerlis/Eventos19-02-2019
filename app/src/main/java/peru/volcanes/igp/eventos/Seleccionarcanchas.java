@@ -1,5 +1,6 @@
 package peru.volcanes.igp.eventos;
-
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -16,26 +17,20 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import peru.volcanes.igp.eventos.m_model.canchas;
 import peru.volcanes.igp.eventos.m_ui.Canchasadapter;
-
 import static android.widget.Toast.LENGTH_LONG;
-
 public class Seleccionarcanchas extends AppCompatActivity {
-
     private RelativeLayout mDrawerBlock;
-
     Toolbar toolbar;
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
@@ -43,31 +38,23 @@ public class Seleccionarcanchas extends AppCompatActivity {
     ImageView sliderz;
     private String[] mNavigationDrawerItemTitles;
     private DrawerLayout mDrawerLayout;
-
-
     ListView reservas;
     private final String TAG = "getvale";
     private CalendarView nCalendarView;
     private DatabaseReference mFirebaseDatabase;
     private FirebaseDatabase database;
     ArrayList<peru.volcanes.igp.eventos.m_model.canchas> objetoerupciones = new ArrayList<canchas>();
-
     FirebaseDatabase databaseerupciones;
     DatabaseReference myRef ;
     List<canchas> list;
     RecyclerView recycle;
-
     Spinner spinner1;
     Spinner spinner2;
-
-
     String valo = "1";
     String valo2 = "1";
-
-
     String valorconvertido = "1";
 
-
+    TextView usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,16 +62,24 @@ public class Seleccionarcanchas extends AppCompatActivity {
         setContentView(R.layout.activity_seleccionarcanchas);
 
 
+        usuario = findViewById(R.id.usuario);
 
 
 
+        Boolean Registered;
+        String valor1;
+        String valor2;
 
+        final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        Registered = sharedPref.getBoolean("Registered", false);
+        valor1 = sharedPref.getString("Username","");
+        valor2 = sharedPref.getString("Password","");
+
+        usuario.setText(valor1);
 
         recycle = (RecyclerView) findViewById(R.id.recycle);
         databaseerupciones = FirebaseDatabase.getInstance();
-
         spinner1 = (Spinner) findViewById(R.id.spinner);
-
         spinner2 = (Spinner) findViewById(R.id.spinner2);
 
 
