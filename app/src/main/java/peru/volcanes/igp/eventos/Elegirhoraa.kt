@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable
 import android.nfc.Tag
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.support.v7.app.AlertDialog
 import android.util.Log
 import android.view.View
@@ -35,7 +36,6 @@ import peru.volcanes.igp.eventos.m_model.reservas
 
 class Elegirhoraa : AppCompatActivity()  {
     lateinit var valorhorario: String
-    lateinit var texto_horario1: String
 
     lateinit var calendar: Calendar
     lateinit var calendar2: Calendar
@@ -46,7 +46,6 @@ class Elegirhoraa : AppCompatActivity()  {
     var intensidad: String = ""
     var hora: String = ""
 
-    lateinit var texto_horario3: String
 
     internal lateinit var databaseerupciones: FirebaseDatabase
     internal lateinit var myRef: DatabaseReference
@@ -85,10 +84,52 @@ class Elegirhoraa : AppCompatActivity()  {
     internal    var mNavigationDrawerItemTitles: Array<String>? = null
     private  var mDrawerLayout: DrawerLayout? = null
 
+     lateinit var usuario: TextView
+
+
+    lateinit var calendario: MaterialCalendarView
+
+
+
+
+
+
+
+    lateinit var texto_horario1: String
+
+    lateinit var texto_horario2: String
+
+    lateinit var texto_horario3: String
+
+
+    lateinit var texto_horario4: String
+    lateinit var texto_horario5: String
+    lateinit var texto_horario6: String
+    lateinit var texto_horario7: String
+    lateinit var texto_horario8: String
+    lateinit var texto_horario9: String
+    lateinit var texto_horario10: String
+    lateinit var texto_horario11: String
+    lateinit var texto_horario12: String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_elegirhoraa)
+
+        val Registered: Boolean?
+        val valor1: String?
+        val valor2: String?
+
+
+        val sharedPref = PreferenceManager.getDefaultSharedPreferences(this)
+        Registered = sharedPref.getBoolean("Registered", false)
+        valor1 = sharedPref.getString("Username", "")
+        valor2 = sharedPref.getString("Password", "")
+
+
+        usuario = findViewById(R.id.usuario) as TextView
+        usuario.text = valor1
 
         val i = this.intent
          local_val = i.extras!!.getString("LOCAL")
@@ -121,20 +162,20 @@ class Elegirhoraa : AppCompatActivity()  {
         var horario12: Button = findViewById(R.id.horario12) as Button
 
         texto_horario1 = horario1.text.toString()
-        var texto_horario2: String = horario2.text.toString()
+        texto_horario2 = horario2.text.toString()
         texto_horario3 = horario3.text.toString()
-        var texto_horario4: String = horario4.text.toString()
-        var texto_horario5: String = horario5.text.toString()
-        var texto_horario6: String = horario6.text.toString()
-        var texto_horario7: String = horario7.text.toString()
-        var texto_horario8: String = horario8.text.toString()
-        var texto_horario9: String = horario9.text.toString()
-        var texto_horario10: String = horario10.text.toString()
-        var texto_horario11: String = horario11.text.toString()
-        var texto_horario12: String = horario12.text.toString()
+        texto_horario4 = horario4.text.toString()
+        texto_horario5 = horario5.text.toString()
+        texto_horario6 = horario6.text.toString()
+        texto_horario7 = horario7.text.toString()
+        texto_horario8 = horario8.text.toString()
+        texto_horario9 = horario9.text.toString()
+        texto_horario10 = horario10.text.toString()
+        texto_horario11 = horario11.text.toString()
+        texto_horario12 = horario12.text.toString()
 
 
-        var calendario: MaterialCalendarView   = findViewById(R.id.calendarView) as MaterialCalendarView
+          calendario      = findViewById(R.id.calendarView) as MaterialCalendarView
 
           calendar     = Calendar.getInstance()
 
@@ -271,7 +312,9 @@ class Elegirhoraa : AppCompatActivity()  {
 
         horario1.setOnClickListener {
             valorhorario = horario1.getText() as String;
-          //  var sdf : SimpleDateFormat =   SimpleDateFormat("dd/MM/yyyy");
+
+
+            //  var sdf : SimpleDateFormat =   SimpleDateFormat("dd/MM/yyyy");
           //  var dse : String = sdf.format(Date(calendar.da))
 
 /*
@@ -293,7 +336,7 @@ class Elegirhoraa : AppCompatActivity()  {
 
 
             if(d.toString() == "-16724100"){
-                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio)
+                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario1")
             }
             else{
                 Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
@@ -304,6 +347,8 @@ class Elegirhoraa : AppCompatActivity()  {
 
 
         horario2.setOnClickListener {
+
+
             valorhorario = horario2.getText() as String;
             //  Toast.makeText(this, valorhorario, Toast.LENGTH_LONG).show();
             var ds  = horario2.background
@@ -312,7 +357,7 @@ class Elegirhoraa : AppCompatActivity()  {
 
 
             if(d.toString() == "-16724100"){
-                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio)
+                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario1")
             }
             else{
                 Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
@@ -323,6 +368,8 @@ class Elegirhoraa : AppCompatActivity()  {
 
 
         horario3.setOnClickListener {
+
+
             valorhorario = horario3.getText() as String;
           //  Toast.makeText(this, valorhorario, Toast.LENGTH_LONG).show();
             var ds  = horario3.background
@@ -331,7 +378,7 @@ class Elegirhoraa : AppCompatActivity()  {
 
 
             if(d.toString() == "-16724100"){
-                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio)
+                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario1")
             }
             else{
                 Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
@@ -363,7 +410,7 @@ class Elegirhoraa : AppCompatActivity()  {
 
 
     @SuppressLint("SetTextI18n")
-    fun showNewNameDialog(horarioval: String, fechaval:String) {
+    fun showNewNameDialog(horarioval: String, fechaval:String, horariox: String) {
         val dialogBuilder = AlertDialog.Builder(this)
         val inflater = this.layoutInflater
         val dialogView = inflater.inflate(R.layout.dislogo, null)
@@ -404,11 +451,10 @@ class Elegirhoraa : AppCompatActivity()  {
 
         botonpagar.setOnClickListener {
 
-                    var ref = FirebaseDatabase.getInstance().getReference("reservas").child("reportes")
+          //  horariox.setBackgroundColor(Color.parseColor("#d62e2e"))
 
+            var ref = FirebaseDatabase.getInstance().getReference("reservas").child("reportes")
                     var reporteid = ref.push().key
-
-
                     if(valk.length < 4){
                         fecha.text = dia2+mes2+anio2
                         reservas    =   reservas(dia2+mes2+anio2 , horarioval,distrito_val,distrito_val+"_"+distrito_val,distrito_val,dia2+mes2+anio2+"_"+horarioval,nombre_val,local_val)
@@ -418,25 +464,14 @@ class Elegirhoraa : AppCompatActivity()  {
                           reservas    =   reservas(dia+mes+anio , horarioval,distrito_val,distrito_val+"_"+distrito_val,distrito_val,dia+mes+anio+"_"+horarioval,nombre_val,local_val)
                     }
 
-
                     ref.child(reporteid).setValue(reservas).addOnCompleteListener {
                         Toast.makeText(this, "Artist added", Toast.LENGTH_LONG).show();
 
                     }
-
         }
-
-
-
         val b = dialogBuilder.create()
         b.show()
     }
-
-
-
-
-
-
 
     fun Verificardisponibilidad(valor1:String, valor2:String): String? {
 
@@ -1099,6 +1134,61 @@ class Elegirhoraa : AppCompatActivity()  {
     internal fun setupDrawerToggle() {
         mDrawerToggle = android.support.v7.app.ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.app_name, R.string.app_name)
         mDrawerToggle!!.syncState()
+    }
+
+    internal fun actualizar_estado(){
+
+
+        if(calendar == calendar2){
+            dia2 = calendario.selectedDate.day.toString()
+            mes2 = calendario.selectedDate.month.toString()
+            valint2 = mes2.toInt()
+            valtostring2 = valint2.toString()
+            anio2 = calendario.selectedDate.year.toString()
+
+
+
+            Toast.makeText(this, dia2+mes2+anio2 , Toast.LENGTH_LONG).show()
+
+
+            horario1.setBackgroundColor(Color.parseColor("#00cf7c"))
+            horario2.setBackgroundColor(Color.parseColor("#00cf7c"))
+            horario3.setBackgroundColor(Color.parseColor("#00cf7c"))
+
+            horario4.setBackgroundColor(Color.parseColor("#00cf7c"))
+            horario5.setBackgroundColor(Color.parseColor("#00cf7c"))
+            horario6.setBackgroundColor(Color.parseColor("#00cf7c"))
+            horario7.setBackgroundColor(Color.parseColor("#00cf7c"))
+            horario8.setBackgroundColor(Color.parseColor("#00cf7c"))
+            horario9.setBackgroundColor(Color.parseColor("#00cf7c"))
+            horario10.setBackgroundColor(Color.parseColor("#00cf7c"))
+            horario11.setBackgroundColor(Color.parseColor("#00cf7c"))
+            horario12.setBackgroundColor(Color.parseColor("#00cf7c"))
+
+            Verificardisponibilidad(texto_horario1, dia2+valtostring2+anio2)
+            Verificardisponibilidad2(texto_horario2, dia2+valtostring2+anio2)
+            Verificardisponibilidad3(texto_horario3, dia2+valtostring2+anio2)
+
+            Verificardisponibilidad4(texto_horario4, dia2+valtostring2+anio2)
+            Verificardisponibilidad5(texto_horario5, dia2+valtostring2+anio2)
+            Verificardisponibilidad6(texto_horario6, dia2+valtostring2+anio2)
+            Verificardisponibilidad7(texto_horario7, dia2+valtostring2+anio2)
+            Verificardisponibilidad8(texto_horario8, dia2+valtostring2+anio2)
+            Verificardisponibilidad9(texto_horario9, dia2+valtostring2+anio2)
+            Verificardisponibilidad10(texto_horario10, dia2+valtostring2+anio2)
+            Verificardisponibilidad11(texto_horario11, dia2+valtostring2+anio2)
+            Verificardisponibilidad12(texto_horario12, dia2+valtostring2+anio2)
+
+        }
+
+
+        else{
+
+         }
+
+
+
+
     }
 
 

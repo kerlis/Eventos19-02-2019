@@ -158,7 +158,7 @@ public class Login extends AppCompatActivity {
                     });
 */
 
-                    if(resp.length() <= 13){
+                    if(resp.length() > 5){
                         Intent intent7 = new Intent(Login.this,Seleccionarcanchas.class);
                         startActivity(intent7);
 

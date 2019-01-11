@@ -39,12 +39,22 @@
             android:background="@color/verde"
             android:id="@+id/re"
             android:layout_height="55dp">
-            <TextView android:layout_width="match_parent"
+
+            <TextView
+                android:id="@+id/usuario"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="@color/blanco"
-                android:layout_centerVertical="true"
-                android:text="RESERVAR CANCHAS">
+                android:layout_alignParentTop="true"
+                 android:textAlignment="center"
+                android:textColor="@color/blanco" />
+
+
+            <TextView android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:layout_below="@+id/usuario"
+                android:layout_height="wrap_content"
+                 android:textColor="@color/blanco"
+                 android:text="RESERVAR CANCHAS">
             </TextView>
         </RelativeLayout>
 
