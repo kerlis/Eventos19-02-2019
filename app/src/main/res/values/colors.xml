@@ -12,7 +12,11 @@
     <color name="celeste">#00b7ff</color>
 
     <color name="verde">#00cf7c</color>
-    <color name="rojo">#d62e2e</color>
+    <color name="rojo">#f71919</color>
     <color name="azulbackground">#001665</color>
+
+
+    <color name="amarillo">#ffbb00</color>
+
 
 </resources>

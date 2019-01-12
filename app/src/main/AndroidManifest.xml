@@ -67,7 +67,9 @@
         <activity android:name=".Intropage" />
         <activity android:name=".GetvalueActivityActivity" />
         <activity android:name=".Seleccionarcanchas" />
-        <activity android:name=".Registrarusuario"></activity>
+        <activity android:name=".Registrarusuario" />
+        <activity android:name=".Pagarreserva" />
+        <activity android:name=".Reservar"></activity>
     </application>
 
 </manifest>

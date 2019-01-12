@@ -44,18 +44,25 @@ android:orientation="vertical">
         android:inputType="text" />
 
 
-    <Button android:layout_width="match_parent"
+    <Button
+        android:id="@+id/pagarahora"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_below="@+id/distrito"
-        android:text="PAGAR AHORA"
-        android:id="@+id/pagarahora"/>
+        android:background="@color/rojo"
+        android:text="PAGAR AHORA >>"
+        android:textColor="@color/blanco" />
 
     <Button
         android:id="@+id/soloreservar"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_below="@+id/pagarahora"
-        android:text="SOLO RESERVAR" />
+        android:background="@color/amarillo"
+        android:text="SOLO RESERVAR >>"
+        android:textColor="@color/blanco" />
 
 
 

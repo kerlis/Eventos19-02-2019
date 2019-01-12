@@ -215,15 +215,11 @@ class Elegirhoraa : AppCompatActivity()  {
 */
         if(calendar == calendar2){
 
-
-
-
             dia2 = calendario.selectedDate.day.toString()
             mes2 = calendario.selectedDate.month.toString()
-            valint2 = mes2.toInt()
+            valint2 = mes2.toInt() - 1
             valtostring2 = valint2.toString()
             anio2 = calendario.selectedDate.year.toString()
-
 
             /*
             calendar.time.day
@@ -235,8 +231,7 @@ class Elegirhoraa : AppCompatActivity()  {
             anio = calendar.time.year.toString()
 */
 
-            Toast.makeText(this, dia2+mes2+anio2 , Toast.LENGTH_LONG).show()
-
+            Toast.makeText(this, dia2+valtostring2+anio2 , Toast.LENGTH_LONG).show()
 
             horario1.setBackgroundColor(Color.parseColor("#00cf7c"))
             horario2.setBackgroundColor(Color.parseColor("#00cf7c"))
@@ -253,6 +248,7 @@ class Elegirhoraa : AppCompatActivity()  {
             horario12.setBackgroundColor(Color.parseColor("#00cf7c"))
 
             Verificardisponibilidad(texto_horario1, dia2+valtostring2+anio2)
+
             Verificardisponibilidad2(texto_horario2, dia2+valtostring2+anio2)
             Verificardisponibilidad3(texto_horario3, dia2+valtostring2+anio2)
 
@@ -265,6 +261,7 @@ class Elegirhoraa : AppCompatActivity()  {
             Verificardisponibilidad10(texto_horario10, dia2+valtostring2+anio2)
             Verificardisponibilidad11(texto_horario11, dia2+valtostring2+anio2)
             Verificardisponibilidad12(texto_horario12, dia2+valtostring2+anio2)
+
 
         }
 
@@ -293,6 +290,7 @@ class Elegirhoraa : AppCompatActivity()  {
             horario12.setBackgroundColor(Color.parseColor("#00cf7c"))
 
             Verificardisponibilidad(texto_horario1, dia+valtostring+anio)
+
             Verificardisponibilidad2(texto_horario2, dia+valtostring+anio)
             Verificardisponibilidad3(texto_horario3, dia+valtostring+anio)
 
@@ -311,6 +309,7 @@ class Elegirhoraa : AppCompatActivity()  {
 
 
         horario1.setOnClickListener {
+
             valorhorario = horario1.getText() as String;
 
 
@@ -357,7 +356,7 @@ class Elegirhoraa : AppCompatActivity()  {
 
 
             if(d.toString() == "-16724100"){
-                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario1")
+                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario2")
             }
             else{
                 Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
@@ -378,7 +377,7 @@ class Elegirhoraa : AppCompatActivity()  {
 
 
             if(d.toString() == "-16724100"){
-                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario1")
+                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario3")
             }
             else{
                 Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
@@ -451,29 +450,84 @@ class Elegirhoraa : AppCompatActivity()  {
 
         botonpagar.setOnClickListener {
 
-          //  horariox.setBackgroundColor(Color.parseColor("#d62e2e"))
+
+
+
+
+            if(horariox == "horario1"){
+               horario1.setBackgroundColor(Color.parseColor("#d62e2e"))
+            }
+            else if (horariox == "horario2"){
+                horario2.setBackgroundColor(Color.parseColor("#d62e2e"))
+            }
+            else if (horariox == "horario3"){
+                horario3.setBackgroundColor(Color.parseColor("#d62e2e"))
+            }
+
+
+            //  horariox.setBackgroundColor(Color.parseColor("#d62e2e"))
 
             var ref = FirebaseDatabase.getInstance().getReference("reservas").child("reportes")
-                    var reporteid = ref.push().key
-                    if(valk.length < 4){
-                        fecha.text = dia2+mes2+anio2
-                        reservas    =   reservas(dia2+mes2+anio2 , horarioval,distrito_val,distrito_val+"_"+distrito_val,distrito_val,dia2+mes2+anio2+"_"+horarioval,nombre_val,local_val)
-                    }
-                    else{
-                        fecha.text =  dia+mes+anio
-                          reservas    =   reservas(dia+mes+anio , horarioval,distrito_val,distrito_val+"_"+distrito_val,distrito_val,dia+mes+anio+"_"+horarioval,nombre_val,local_val)
-                    }
+            var reporteid = ref.push().key
 
-                    ref.child(reporteid).setValue(reservas).addOnCompleteListener {
-                        Toast.makeText(this, "Artist added", Toast.LENGTH_LONG).show();
+            if(valk.length < 4){
+                fecha.text = dia2+mes2+anio2
+                reservas    =   reservas(dia2+valtostring2+anio2 , horarioval,distrito_val,distrito_val+"_"+distrito_val,distrito_val,dia2+valtostring2+anio2+"_"+horarioval,nombre_val,local_val)
 
-                    }
+
+                val intent = Intent(this,Pagarreserva::class.java)
+                intent.putExtra("FECHA", dia2+valtostring2+anio2 )
+                intent.putExtra("HORA", horarioval)
+                intent.putExtra("DEPARTAMENTO", distrito_val)
+                intent.putExtra("DEPARTAMENTO_DISTRITO",distrito_val+"_"+distrito_val)
+                intent.putExtra("DISTRITO",distrito_val)
+                intent.putExtra("FECHA_HORA",dia2+valtostring2+anio2+"_"+horarioval)
+                intent.putExtra("CANCHA_NOMBRE", nombre_val)
+                intent.putExtra("LOCAL", local_val)
+                startActivity(intent)
+
+
+
+
+
+            }
+            else{
+                fecha.text =  dia+mes+anio
+                reservas    =   reservas(dia+valtostring+anio , horarioval,distrito_val,distrito_val+"_"+distrito_val,distrito_val,dia+valtostring+anio+"_"+horarioval,nombre_val,local_val)
+
+                val intent = Intent(this,Pagarreserva::class.java)
+                intent.putExtra("FECHA", dia+valtostring+anio)
+                intent.putExtra("HORA", horarioval)
+                intent.putExtra("DEPARTAMENTO", distrito_val)
+                intent.putExtra("DEPARTAMENTO_DISTRITO",distrito_val+"_"+distrito_val)
+                intent.putExtra("DISTRITO",distrito_val)
+                intent.putExtra("FECHA_HORA",dia+valtostring+anio+"_"+horarioval)
+                intent.putExtra("CANCHA_NOMBRE", nombre_val)
+                intent.putExtra("LOCAL", local_val)
+                startActivity(intent)
+
+            }
+
+            ref.child(reporteid).setValue(reservas).addOnCompleteListener {
+            Toast.makeText(this, "Artist added", Toast.LENGTH_LONG).show();
+            }
         }
+
+
         val b = dialogBuilder.create()
         b.show()
     }
 
+
+
+
+
+
+
     fun Verificardisponibilidad(valor1:String, valor2:String): String? {
+
+        Toast.makeText(this, "valor : " + valor2+"_"+valor1, Toast.LENGTH_LONG).show()
+
 
         var mFirebaseDatabase2: DatabaseReference? = null
         FirebaseDatabase.getInstance()
