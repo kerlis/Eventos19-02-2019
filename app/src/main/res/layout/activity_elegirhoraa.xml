@@ -152,10 +152,10 @@
 
                     <Button
                         android:id="@+id/horario3"
-                        android:layout_margin="2px"
-
                         android:layout_width="match_parent"
+
                         android:layout_height="59dp"
+                        android:layout_margin="2px"
                         android:layout_weight="1"
                         android:text="08:00-09:00" />
 
@@ -166,32 +166,31 @@
                     android:layout_height="wrap_content">
 
 
-
                     <Button
                         android:id="@+id/horario4"
-                        android:layout_margin="2px"
-
                         android:layout_width="match_parent"
+
                         android:layout_height="59dp"
+                        android:layout_margin="2px"
                         android:layout_weight="1"
                         android:text="09:00 - 10:00" />
 
 
                     <Button
                         android:id="@+id/horario5"
-                        android:layout_margin="2px"
-
                         android:layout_width="match_parent"
+
                         android:layout_height="59dp"
+                        android:layout_margin="2px"
                         android:layout_weight="1"
                         android:text="10:00 - 11:00" />
 
                     <Button
                         android:id="@+id/horario6"
-                        android:layout_margin="2px"
-
                         android:layout_width="match_parent"
+
                         android:layout_height="59dp"
+                        android:layout_margin="2px"
                         android:layout_weight="1"
                         android:text="11:00 - 12:00" />
                 </TableRow>
@@ -202,28 +201,28 @@
 
                     <Button
                         android:id="@+id/horario7"
-                        android:layout_margin="2px"
-
                         android:layout_width="match_parent"
+
                         android:layout_height="59dp"
+                        android:layout_margin="2px"
                         android:layout_weight="1"
                         android:text="12:00 - 13:00" />
 
                     <Button
                         android:id="@+id/horario8"
-                        android:layout_margin="2px"
-
                         android:layout_width="match_parent"
+
                         android:layout_height="59dp"
+                        android:layout_margin="2px"
                         android:layout_weight="1"
                         android:text="13:00 - 14:00" />
 
                     <Button
                         android:id="@+id/horario9"
-                        android:layout_margin="2px"
-
                         android:layout_width="match_parent"
+
                         android:layout_height="59dp"
+                        android:layout_margin="2px"
                         android:layout_weight="1"
                         android:text="14:00 - 15:00" />
                 </TableRow>
@@ -234,31 +233,30 @@
                     android:layout_height="wrap_content">
 
 
-
                     <Button
                         android:id="@+id/horario10"
-                        android:layout_margin="2px"
-
                         android:layout_width="match_parent"
+
                         android:layout_height="59dp"
+                        android:layout_margin="2px"
                         android:layout_weight="1"
                         android:text="15:00 - 16:00" />
 
                     <Button
                         android:id="@+id/horario11"
-                        android:layout_margin="2px"
-
                         android:layout_width="match_parent"
+
                         android:layout_height="59dp"
+                        android:layout_margin="2px"
                         android:layout_weight="1"
                         android:text="16:00 - 17:00" />
 
                     <Button
                         android:id="@+id/horario12"
-                        android:layout_margin="2px"
-
                         android:layout_width="match_parent"
+
                         android:layout_height="59dp"
+                        android:layout_margin="2px"
                         android:layout_weight="1"
                         android:text="17:00 - 18:00" />
                 </TableRow>
