@@ -288,7 +288,8 @@ class Pagarreserva : AppCompatActivity() {
      //   val intent = Intent(this,Elegirhoraa::class.java)
 
         val intent7: Intent = Intent(this, Pagoexitoso::class.java)
-        startActivity(intent7)
+       //
+        // startActivity(intent7)
 /*
         val sharedrf = PreferenceManager.getDefaultSharedPreferences(Pagarreserva.this)
         val editor = sharedrf.edit()
@@ -297,6 +298,19 @@ class Pagarreserva : AppCompatActivity() {
         editor.putString("Password", resp)
         editor.apply()
 */
+
+       // val intent = Intent(this, Pagoexitoso::class.java)
+        intent7.putExtra("FECHA", fecha)
+        intent7.putExtra("HORA", hora)
+        intent7.putExtra("DEPARTAMENTO", departamento)
+        intent7.putExtra("DEPARTAMENTO_DISTRITO", departamento_distrito)
+        intent7.putExtra("DISTRITO", distrito)
+        intent7.putExtra("FECHA_HORA",fecha_hora)
+        intent7.putExtra("CANCHA_NOMBRE", cancha_nombre)
+        intent7.putExtra("LOCAL", local)
+        startActivity(intent7)
+
+
 
         runOnUiThread { Toast.makeText(applicationContext, "Status = $dato", Toast.LENGTH_LONG).show() }
     }

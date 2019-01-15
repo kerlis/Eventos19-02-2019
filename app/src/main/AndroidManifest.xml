@@ -45,6 +45,13 @@
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
     <application
         android:name="android.support.multidex.MultiDexApplication"
         android:allowBackup="true"
@@ -56,7 +63,7 @@
         android:theme="@style/AppTheme"
         tools:replace="android:supportsRtl">
 
-        <activity android:name=".Generarqrcodevalues">
+        <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -76,7 +83,7 @@
         <activity android:name=".Pagoexitoso" />
 
 
-        <activity android:name=".Login"></activity>
+        <activity android:name=".Generarqrcodevalues"></activity>
 
 
 

@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Pagoexitoso">
+    tools:context=".Generarqrcodevalues">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/imgview"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_below="@+id/imgview"
+        android:id="@+id/proceso"
+        android:layout_marginTop="15dp"
+        android:background="@color/celeste"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textColor="@color/blanco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Process" />
+
+</RelativeLayout>
