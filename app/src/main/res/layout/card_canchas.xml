@@ -11,36 +11,53 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="5dp"
-        android:background="@drawable/fotocancha">
+        android:layout_margin="5dp" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+
+            android:layout_alignParentTop="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/imagencancha2"></ImageView>
 
 
         <Button
-            android:id="@+id/button2"
-            android:layout_width="96dp"
-            android:layout_height="56dp"
+            android:id="@+id/detalles"
+            android:layout_margin="4dp"
+            android:background="@color/azuldeport"
+
+            android:layout_width="86dp"
+            android:textColor="@color/blanco"
+            android:layout_height="46dp"
+            android:textSize="10dp"
             android:layout_toLeftOf="@+id/ir"
             android:layout_marginTop="0dp"
-            android:text="Button" />
+            android:text="Ver Cancha" />
 
         <Button
             android:id="@+id/ir"
-            android:layout_width="96dp"
-            android:layout_height="56dp"
+            android:textColor="@color/blanco"
+            android:layout_margin="4dp"
+            android:background="@color/azuldeport"
+            android:textSize="10dp"
+            android:layout_width="86dp"
+            android:layout_height="46dp"
             android:layout_alignParentRight="true"
              android:layout_alignParentTop="true"
-            android:text="Button" />
+            android:text="Reservar" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="0dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="0dp"
             android:layout_alignParentRight="true"
-             android:alpha="0.6"
-            android:background="@color/common_google_signin_btn_text_dark_focused"
+            android:alpha="0.6"
+            android:background="@color/amarillo"
             android:orientation="horizontal">
 
             <TextView
@@ -49,7 +66,6 @@
                 android:layout_height="29dp"
                 android:layout_alignParentLeft="true"
                 android:text="TextView"
-
                 android:textColor="@color/blanco" />
 
             <TextView
@@ -63,6 +79,7 @@
                 android:text="TextView"
                 android:textColor="@color/blanco" />
         </RelativeLayout>
+
 
     </RelativeLayout>
 

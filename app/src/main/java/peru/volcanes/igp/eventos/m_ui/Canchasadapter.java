@@ -1,7 +1,9 @@
 //package com.mytrendin.firebaserecyclerviewcardview;
 package peru.volcanes.igp.eventos.m_ui;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.provider.Settings;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +40,21 @@ public class Canchasadapter extends RecyclerView.Adapter<Canchasadapter.MyHoder>
         final canchas mylist = list.get(position);
         holder.nombredecancha.setText("   " + mylist.getNombre());
         holder.canchadistrito.setText("   " + mylist.getDistrito());
+
+
+
+        holder.detalles.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+                verpopup(mylist.getNombre(),mylist.getDistrito(),mylist.getLocal());
+            }
+        });
+
+
+
         holder.ir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,6 +65,8 @@ public class Canchasadapter extends RecyclerView.Adapter<Canchasadapter.MyHoder>
                 context.startActivity(intent);
             }
         });
+
+
     }
 
     @Override
@@ -80,7 +99,7 @@ public class Canchasadapter extends RecyclerView.Adapter<Canchasadapter.MyHoder>
 
     class MyHoder extends RecyclerView.ViewHolder{
        // TextView name,email,address,ir;
-        TextView nombredecancha,canchadistrito,ir;
+        TextView nombredecancha,canchadistrito,ir,detalles;
 
 
         public MyHoder(View itemView) {
@@ -88,14 +107,27 @@ public class Canchasadapter extends RecyclerView.Adapter<Canchasadapter.MyHoder>
             nombredecancha= (TextView) itemView.findViewById(R.id.nombredecancha);
             canchadistrito= (TextView) itemView.findViewById(R.id.canchadistrito);
              ir = (Button) itemView.findViewById(R.id.ir);
+            detalles = (Button) itemView.findViewById(R.id.detalles);
 
         }
     }
 
-}
 
-/*
-package peru.volcanes.volcanesper.m_ui;
-public class RecyclerAdapter {
+    public void verpopup(String local, String distrito, String nombre) {
+        View view;
+        LayoutInflater inflater = (LayoutInflater)   context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        view = inflater.inflate(R.layout.datoscancha, null);
+        AlertDialog.Builder dialog  = new AlertDialog.Builder(context);
+        dialog.setView(view);
+        dialog.show();
+
+        TextView  distrito_textview = view.findViewById(R.id.distrito);
+        TextView  local_textview = view.findViewById(R.id.local);
+        TextView  nombre_textview = view.findViewById(R.id.nombre);
+
+        distrito_textview.setText(distrito);
+        local_textview.setText(local);
+        nombre_textview.setText(nombre);
+    }
+
 }
-*/

@@ -51,10 +51,16 @@
             android:layout_height="54dp"/>
 
         <android.support.v7.widget.RecyclerView
-            android:layout_below="@id/spinner2"
             android:id="@+id/recycle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_below="@id/spinner2">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <android.support.design.widget.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </RelativeLayout>
 
@@ -65,6 +71,7 @@
         android:choiceMode="singleChoice"
         android:divider="@android:color/darker_gray"
         android:layout_height="match_parent">
+
         <include
             android:id="@+id/ty"
             layout="@layout/list" />
