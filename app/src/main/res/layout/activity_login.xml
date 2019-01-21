@@ -20,6 +20,9 @@
             android:layout_alignParentBottom="true"
             android:src="@drawable/jugador"
 
+
+
+
             android:scaleType="centerCrop"
 
             android:layout_height="match_parent"
@@ -30,8 +33,10 @@
             android:src="@drawable/logodeportcenter"
             android:layout_marginTop="30dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
+
+
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
 
             android:layout_height="100dp"
             android:id="@+id/ima"/>
@@ -41,9 +46,9 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_below="@+id/ima"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginRight="20dp"
             android:background="@color/blanco"
             android:hint="  USUARIO"
             android:padding="5dp" />
@@ -53,22 +58,23 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_below="@+id/usuario"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginRight="20dp"
             android:background="@color/blanco"
             android:hint="  PASSWORD"
             android:inputType="textPassword"
             android:padding="5dp" />
 
         <Button
-            android:layout_width="match_parent"
             android:id="@+id/login"
+            android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_below="@+id/password"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/verde"
             android:text="LOGIN" />
 
         <TextView

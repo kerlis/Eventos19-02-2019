@@ -9,7 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 import peru.volcanes.igp.eventos.Elegirhoraa;
 import peru.volcanes.igp.eventos.GetvalueActivityActivity;
@@ -38,8 +42,30 @@ public class Canchasadapter extends RecyclerView.Adapter<Canchasadapter.MyHoder>
     @Override
     public void onBindViewHolder(MyHoder holder, int position) {
         final canchas mylist = list.get(position);
-        holder.nombredecancha.setText("   " + mylist.getNombre());
+        holder.nombredecancha.setText("   " + mylist.getServicioshigienicos());
         holder.canchadistrito.setText("   " + mylist.getDistrito());
+
+
+
+      //  if(mylist.getFoto() != null && !mylist.getFoto().isEmpty()) {
+
+            Picasso.with(context).load(mylist.getFoto())
+                    .error(R.mipmap.ic_launcher)
+                    .into(holder.foto);
+
+        //   .into(holder.foto, new com.squareup.picasso.Callback(){
+
+                   //     @Override
+                     //   public void onSuccess() {
+
+                     //   }
+
+                 //       @Override
+                //        public void onError() {
+
+             //           }
+           //         });
+       // }
 
 
 
@@ -101,6 +127,7 @@ public class Canchasadapter extends RecyclerView.Adapter<Canchasadapter.MyHoder>
        // TextView name,email,address,ir;
         TextView nombredecancha,canchadistrito,ir,detalles;
 
+        ImageView foto;
 
         public MyHoder(View itemView) {
             super(itemView);
@@ -109,7 +136,18 @@ public class Canchasadapter extends RecyclerView.Adapter<Canchasadapter.MyHoder>
              ir = (Button) itemView.findViewById(R.id.ir);
             detalles = (Button) itemView.findViewById(R.id.detalles);
 
+            foto = (ImageView) itemView.findViewById(R.id.imagen);
+
         }
+    }
+
+
+
+    public void loadimage(String url) {
+       /* Picasso.with(context).load("https://static01.diariodenavarra.es/uploads/imagenes/8col/2016/12/18/_amaya_3176df96.jpg?8ea6fc0f2a298b1ae9b4835f01e49143")
+                .resize(120, 100)
+                .onlyScaleDown()
+                .into(foto);*/
     }
 
 

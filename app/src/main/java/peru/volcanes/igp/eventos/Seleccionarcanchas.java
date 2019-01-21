@@ -277,9 +277,13 @@ public class Seleccionarcanchas extends AppCompatActivity {
                     String distrito = value.getDistrito();
                     String local = value.getLocal();
                     String nombre = value.getNombre();
+                    String foto = value.getFoto();
+
                     fire.setDistrito(distrito);
                     fire.setLocal(local);
                     fire.setNombre(nombre);
+                    fire.setFoto(foto);
+
                     list.add(fire);
 
 

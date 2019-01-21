@@ -6,6 +6,16 @@
     android:padding="10dp"
     android:orientation="vertical">
 
+
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:gravity="center_vertical">
+        <TextView android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="DATOS DE CANCHA"/>
+    </RelativeLayout>
+
     <TextView
         android:layout_alignParentTop="true"
         android:id="@+id/local"
