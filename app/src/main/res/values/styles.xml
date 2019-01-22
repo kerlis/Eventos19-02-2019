@@ -62,6 +62,12 @@
 
      </style>
 
+    <style name="textohorario">
+        <item name="android:textColor">@color/blanco2</item>
+        <item name="android:textSize">10dp</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
 
 
     <style name="spinner_style">

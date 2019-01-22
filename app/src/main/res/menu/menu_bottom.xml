@@ -4,22 +4,22 @@
 
     <item android:id="@+id/buscar"
         android:enabled="true"
-        android:icon="@drawable/ic_launcher_background"
-        android:title="Add"
+        android:icon="@drawable/reservar"
+        android:title="Reservar"
         app:showAsAction="ifRoom"/>
 
 
     <item android:id="@+id/configuracion"
         android:enabled="true"
-        android:icon="@drawable/ic_launcher_background"
-        android:title="Conf"
+        android:icon="@drawable/misreservas"
+        android:title="Mis reservas"
         app:showAsAction="ifRoom"/>
 
 
     <item android:id="@+id/misreservas"
         android:enabled="true"
-        android:icon="@drawable/ic_launcher_background"
-        android:title="C"
+        android:icon="@drawable/misdatos"
+        android:title="Mis datos"
         app:showAsAction="ifRoom"/>
 
 </menu>

@@ -137,14 +137,14 @@ class Elegirhoraa : AppCompatActivity()  {
          nombre_val = i.extras!!.getString("NOMBRE")
 
         val local: TextView = findViewById(R.id.local) as TextView
-        val cancha: TextView = findViewById(R.id.cancha) as TextView
+        //val cancha: TextView = findViewById(R.id.cancha) as TextView
         val distrito: TextView = findViewById(R.id.distrito) as TextView
 
 
        // val colorvalue = ContextCompat.getColor(cont)
 
-        local.text = "Local: " + local_val
-        cancha.text = "Nombre: " + nombre_val
+        local.text = "Local: " + local_val + " / " + nombre_val
+        //cancha.text = "Nombre: " + nombre_val
         distrito.text = "Distrito: " + distrito_val
 
 

@@ -1,14 +1,18 @@
 package peru.volcanes.igp.eventos;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -29,7 +33,7 @@ import java.util.List;
 import peru.volcanes.igp.eventos.m_model.canchas;
 import peru.volcanes.igp.eventos.m_ui.Canchasadapter;
 import static android.widget.Toast.LENGTH_LONG;
-public class Seleccionarcanchas extends AppCompatActivity {
+public class Seleccionarcanchas extends AppCompatActivity  implements BottomNavigationView.OnNavigationItemSelectedListener {
     private RelativeLayout mDrawerBlock;
     Toolbar toolbar;
     private CharSequence mDrawerTitle;
@@ -56,14 +60,27 @@ public class Seleccionarcanchas extends AppCompatActivity {
 
     TextView usuario;
 
+
+    BottomNavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seleccionarcanchas);
 
+        ActionBar toolbar;
 
         usuario = findViewById(R.id.usuario);
 
+      //  toolbar = getSupportActionBar();
+      //  BottomNavigationView bottomNavigation  = findViewById(R.id.navigationView);
+
+
+
+
+
+        navigationView = (BottomNavigationView) findViewById(R.id.navigationView);
+        navigationView.setOnNavigationItemSelectedListener(this);
 
 
         Boolean Registered;
@@ -179,6 +196,9 @@ public class Seleccionarcanchas extends AppCompatActivity {
 
 
     }
+
+
+
 
     public void datos_elegidos(){
         // String valor1 = spinner1.getSelectedItem().toString();
@@ -314,6 +334,34 @@ public class Seleccionarcanchas extends AppCompatActivity {
         mDrawerToggle = new android.support.v7.app.ActionBarDrawerToggle(this,mDrawerLayout,toolbar,R.string.app_name, R.string.app_name);
         mDrawerToggle.syncState();
     }
+
+
+
+
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        navigationView.postDelayed(() -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.buscar) {
+
+                Toast.makeText(getApplicationContext(), "buscar", LENGTH_LONG).show();
+
+            } else if (itemId == R.id.configuracion) {
+
+                Toast.makeText(getApplicationContext(), "configuracion", LENGTH_LONG).show();
+
+            } else if (itemId == R.id.misreservas) {
+
+                Toast.makeText(getApplicationContext(), "mis reservas"+"wfwf", LENGTH_LONG).show();
+
+            }
+           // finish();
+        }, 300);
+        return true;
+    }
+
 
 
 }

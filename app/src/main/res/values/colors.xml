@@ -3,21 +3,14 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#ffffff</color>
-
-
-    <color name="blanco">#70ffffff</color>
+    <color name="blanco2">#ffffff</color>
+    <color name="blanco">#ffffff</color>
     <color name="negro">#000000</color>
-
     <color name="black_v">#000000</color>
     <color name="celeste">#00b7ff</color>
-
-    <color name="verde">#a600cf7c</color>
+    <color name="verde">#00DC62</color>
     <color name="rojo">#f71919</color>
     <color name="azulbackground">#001665</color>
-
-
     <color name="amarillo">#ffbb00</color>
-
     <color name="azuldeport">#2a8ef2</color>
-
 </resources>
