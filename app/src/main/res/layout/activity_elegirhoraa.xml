@@ -125,20 +125,20 @@
 
                 <Button
                     android:id="@+id/horario1"
+                    style="@style/textohorario"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="2px"
                     android:layout_weight="1"
-                    style="@style/textohorario"
                     android:text="06:00 - 07:00" />
 
                 <Button
                     android:id="@+id/horario2"
-                    android:layout_margin="2px"
                     style="@style/textohorario"
-
                     android:layout_width="match_parent"
+
                     android:layout_height="match_parent"
+                    android:layout_margin="2px"
                     android:layout_weight="1"
                     android:text="07:00 - 08:00" />
 

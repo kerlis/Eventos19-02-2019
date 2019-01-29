@@ -1,6 +1,7 @@
 package peru.volcanes.igp.eventos.m_model;
 
 public class canchas {
+    String canchaid;
     String descripcion;
     String distrito;
     String estacionamiento;
@@ -8,9 +9,17 @@ public class canchas {
     String incluye;
     String local;
     String local_distrito;
+    String localid;
     String nombre;
     String servicioshigienicos;
     String tribuna;
+    public String getCanchaid() {
+        return canchaid;
+    }
+
+    public void setCanchaid(String canchaid) {
+        this.canchaid = canchaid;
+    }
 
     public String getDescripcion() {
         return descripcion;
@@ -68,6 +77,14 @@ public class canchas {
         this.local_distrito = local_distrito;
     }
 
+    public String getLocalid() {
+        return localid;
+    }
+
+    public void setLocalid(String localid) {
+        this.localid = localid;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -92,8 +109,8 @@ public class canchas {
         this.tribuna = tribuna;
     }
 
-
-    public canchas(String descripcion, String distrito, String estacionamiento, String foto, String incluye, String local, String local_distrito, String nombre, String servicioshigienicos, String tribuna) {
+    public canchas(String canchaid, String descripcion, String distrito, String estacionamiento, String foto, String incluye, String local, String local_distrito, String localid, String nombre, String servicioshigienicos, String tribuna) {
+        this.canchaid = canchaid;
         this.descripcion = descripcion;
         this.distrito = distrito;
         this.estacionamiento = estacionamiento;
@@ -101,6 +118,7 @@ public class canchas {
         this.incluye = incluye;
         this.local = local;
         this.local_distrito = local_distrito;
+        this.localid = localid;
         this.nombre = nombre;
         this.servicioshigienicos = servicioshigienicos;
         this.tribuna = tribuna;

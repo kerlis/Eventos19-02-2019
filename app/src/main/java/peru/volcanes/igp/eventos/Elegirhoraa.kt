@@ -1,5 +1,4 @@
 package peru.volcanes.igp.eventos
-
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
@@ -66,11 +65,14 @@ class Elegirhoraa : AppCompatActivity()  {
     lateinit var valtostring2: String
     lateinit var anio2: String
 
+      var mesarreglado: String = ""
 
 
     lateinit var local_val:String
     lateinit var distrito_val:String
     lateinit var nombre_val:String
+    lateinit var canchaid:String
+    lateinit var localid:String
 
     lateinit var datetime: String
 
@@ -113,6 +115,11 @@ class Elegirhoraa : AppCompatActivity()  {
     lateinit var texto_horario12: String
 
 
+
+    lateinit var datestringx:String
+    lateinit var dateformatx:SimpleDateFormat
+    lateinit var convertdate:Date
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_elegirhoraa)
@@ -135,6 +142,11 @@ class Elegirhoraa : AppCompatActivity()  {
          local_val = i.extras!!.getString("LOCAL")
          distrito_val = i.extras!!.getString("DISTRITO")
          nombre_val = i.extras!!.getString("NOMBRE")
+
+
+        canchaid = i.extras!!.getString("CANCHAID")
+        localid = i.extras!!.getString("LOCALID")
+
 
         val local: TextView = findViewById(R.id.local) as TextView
         //val cancha: TextView = findViewById(R.id.cancha) as TextView
@@ -274,6 +286,9 @@ class Elegirhoraa : AppCompatActivity()  {
             valint = mes.toInt() + 1
             valtostring = valint.toString()
             anio = date.year.toString()
+
+
+
 
             horario1.setBackgroundColor(Color.parseColor("#00cf7c"))
             horario2.setBackgroundColor(Color.parseColor("#00cf7c"))
@@ -470,33 +485,169 @@ class Elegirhoraa : AppCompatActivity()  {
             var ref = FirebaseDatabase.getInstance().getReference("reservas").child("reportes")
             var reporteid = ref.push().key
 
+
+
+
+
+
             if(valk.length < 4){
                 fecha.text = dia2+mes2+anio2
                 reservas    =   reservas(dia2+valtostring2+anio2 , horarioval,distrito_val,distrito_val+"_"+distrito_val,distrito_val,dia2+valtostring2+anio2+"_"+horarioval,nombre_val,local_val)
 
 
+                if(valtostring2.equals("1 ")){
+                    mesarreglado = "01"
+                }
+                else if(valtostring2.equals("2 ")){
+                    mesarreglado = "02"
+
+                }
+                else if(valtostring2.equals("3 ")){
+                    mesarreglado = "03"
+
+                }
+                else if(valtostring2.equals("4 ")){
+                    mesarreglado = "04"
+
+                }
+                else if(valtostring2.equals("5 ")){
+                    mesarreglado = "05"
+
+                }
+                else if(valtostring2.equals("6 ")){
+                    mesarreglado = "06"
+
+                }
+                else if(valtostring2.equals("7 ")){
+                    mesarreglado = "07"
+
+                }
+                else if(valtostring2.equals("8 ")){
+                    mesarreglado = "08"
+
+                }
+                else if(valtostring2.equals("9 ")){
+                    mesarreglado = "09"
+
+                }
+                else if(valtostring2.equals("10 ")){
+                    mesarreglado = "10"
+
+                }
+                else if(valtostring2.equals("11 ")){
+                    mesarreglado = "11"
+
+                }
+                else if(valtostring2.equals("12 ")){
+                    mesarreglado = "12"
+
+                }
+                else{
+                    mesarreglado = "kkk"
+
+                }
+
+
+                datestringx = valtostring2+"/"+dia2+"/"+anio2
+                dateformatx = SimpleDateFormat("mm/dd/yyyy")
+                convertdate = Date()
+                convertdate = dateformatx.parse(datestringx)
+
+
                 val intent = Intent(this,Pagarreserva::class.java)
-                intent.putExtra("FECHA", dia2+valtostring2+anio2 )
-                intent.putExtra("HORA", horarioval)
+                intent.putExtra("FECHA", anio2+"/"+valtostring2+"/"+dia2)
+                intent.putExtra("FECHARESERVA", anio2+"-"+valtostring2+"-"+dia2+" "+"00:00:00")
+
+
+                intent.putExtra("HORA", horarioval.toString())
                 intent.putExtra("DEPARTAMENTO", distrito_val)
                 intent.putExtra("DEPARTAMENTO_DISTRITO",distrito_val+"_"+distrito_val)
                 intent.putExtra("DISTRITO",distrito_val)
                 intent.putExtra("FECHA_HORA",dia2+valtostring2+anio2+"_"+horarioval)
                 intent.putExtra("CANCHA_NOMBRE", nombre_val)
                 intent.putExtra("LOCAL", local_val)
+
+                intent.putExtra("LOCALID", localid)
+                intent.putExtra("CANCHAID", canchaid)
+
+
+
+
+
                 startActivity(intent)
-
-
-
-
-
             }
             else{
+
+
+                if(valtostring2.equals("1 ")){
+                    mesarreglado = "01"
+                }
+                else if(valtostring2.equals("2 ")){
+                    mesarreglado = "02"
+
+                }
+                else if(valtostring2.equals("3 ")){
+                    mesarreglado = "03"
+
+                }
+                else if(valtostring2.equals("4 ")){
+                    mesarreglado = "04"
+
+                }
+                else if(valtostring2.equals("5 ")){
+                    mesarreglado = "05"
+
+                }
+                else if(valtostring2.equals("6 ")){
+                    mesarreglado = "06"
+
+                }
+                else if(valtostring2.equals("7 ")){
+                    mesarreglado = "07"
+
+                }
+                else if(valtostring2.equals("8 ")){
+                    mesarreglado = "08"
+
+                }
+                else if(valtostring2.equals("9 ")){
+                    mesarreglado = "09"
+
+                }
+                else if(valtostring2.equals("10 ")){
+                    mesarreglado = "10"
+
+                }
+                else if(valtostring2.equals("11 ")){
+                    mesarreglado = "11"
+
+                }
+                else if(valtostring2.equals("12 ")){
+                    mesarreglado = "12"
+
+                }
+                else{
+                    mesarreglado = "kkk"
+
+                }
+
+
                 fecha.text =  dia+mes+anio
                 reservas    =   reservas(dia+valtostring+anio , horarioval,distrito_val,distrito_val+"_"+distrito_val,distrito_val,dia+valtostring+anio+"_"+horarioval,nombre_val,local_val)
 
+                datestringx = valtostring+"/"+dia+"/"+anio
+                dateformatx = SimpleDateFormat("mm/dd/yyyy")
+                convertdate = Date()
+                convertdate = dateformatx.parse(datestringx)
+
+
+
+
+
                 val intent = Intent(this,Pagarreserva::class.java)
-                intent.putExtra("FECHA", dia+valtostring+anio)
+                intent.putExtra("FECHA", anio+"/"+valtostring+"/"+dia)
+                intent.putExtra("FECHARESERVA", anio+"-"+valtostring+"-"+dia+" "+"00:00:00")
+
                 intent.putExtra("HORA", horarioval)
                 intent.putExtra("DEPARTAMENTO", distrito_val)
                 intent.putExtra("DEPARTAMENTO_DISTRITO",distrito_val+"_"+distrito_val)
@@ -504,7 +655,12 @@ class Elegirhoraa : AppCompatActivity()  {
                 intent.putExtra("FECHA_HORA",dia+valtostring+anio+"_"+horarioval)
                 intent.putExtra("CANCHA_NOMBRE", nombre_val)
                 intent.putExtra("LOCAL", local_val)
+
+                intent.putExtra("LOCALID", localid)
+                intent.putExtra("CANCHAID", canchaid)
+
                 startActivity(intent)
+
 
             }
 

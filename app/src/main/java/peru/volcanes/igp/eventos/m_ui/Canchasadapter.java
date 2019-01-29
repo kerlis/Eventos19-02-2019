@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -20,6 +21,8 @@ import peru.volcanes.igp.eventos.GetvalueActivityActivity;
 import peru.volcanes.igp.eventos.Intropage;
 import peru.volcanes.igp.eventos.R;
 import peru.volcanes.igp.eventos.m_model.canchas;
+
+import static android.widget.Toast.LENGTH_LONG;
 
 public class Canchasadapter extends RecyclerView.Adapter<Canchasadapter.MyHoder>{
 
@@ -75,7 +78,7 @@ public class Canchasadapter extends RecyclerView.Adapter<Canchasadapter.MyHoder>
 
 
 
-                verpopup(mylist.getNombre(),mylist.getDistrito(),mylist.getLocal());
+                verpopup(mylist.getLocalid(),mylist.getDistrito(),mylist.getCanchaid());
             }
         });
 
@@ -88,6 +91,9 @@ public class Canchasadapter extends RecyclerView.Adapter<Canchasadapter.MyHoder>
                 intent.putExtra("LOCAL", mylist.getLocal());
                 intent.putExtra("DISTRITO", mylist.getDistrito());
                 intent.putExtra("NOMBRE", mylist.getNombre());
+                intent.putExtra("CANCHAID", mylist.getCanchaid());
+                intent.putExtra("LOCALID", mylist.getLocalid());
+
                 context.startActivity(intent);
             }
         });

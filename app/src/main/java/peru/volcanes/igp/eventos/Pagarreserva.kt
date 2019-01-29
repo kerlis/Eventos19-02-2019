@@ -1,5 +1,4 @@
 package peru.volcanes.igp.eventos
-
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -12,10 +11,10 @@ import android.view.View
 import android.widget.*
 import okhttp3.*
 import java.io.IOException
-
-
 class Pagarreserva : AppCompatActivity() {
     var fecha: String = ""
+    var fechareserva: String = ""
+
     var hora: String = ""
     var departamento: String = ""
     var departamento_distrito: String = ""
@@ -23,6 +22,10 @@ class Pagarreserva : AppCompatActivity() {
     var fecha_hora: String = ""
     var cancha_nombre: String = ""
     var local: String = ""
+
+    var localid: String = ""
+    var canchaid: String = ""
+    var montox: String = ""
     lateinit var numeros:Spinner
     lateinit var valormonto:TextView
 
@@ -35,14 +38,12 @@ class Pagarreserva : AppCompatActivity() {
     internal    var mNavigationDrawerItemTitles: Array<String>? = null
     private  var mDrawerLayout: DrawerLayout? = null
 
-
     lateinit var txt_nombretarjeta:TextView
     lateinit var txt_cardnumber:TextView
     lateinit var txt_month:TextView
     lateinit var txt_year:TextView
     lateinit var txt_cvv:TextView
     lateinit var txt_codigopostal:TextView
-
     lateinit var btn_pay:Button
 
 
@@ -92,6 +93,8 @@ class Pagarreserva : AppCompatActivity() {
 
         val i = this.intent
         fecha = i.extras!!.getString("FECHA")
+        fechareserva = i.extras!!.getString("FECHARESERVA")
+
         hora = i.extras!!.getString("HORA")
         departamento = i.extras!!.getString("DEPARTAMENTO")
         departamento_distrito = i.extras!!.getString("DEPARTAMENTO_DISTRITO")
@@ -99,6 +102,11 @@ class Pagarreserva : AppCompatActivity() {
         fecha_hora = i.extras!!.getString("FECHA_HORA")
         cancha_nombre = i.extras!!.getString("CANCHA_NOMBRE")
         local = i.extras!!.getString("LOCAL")
+
+        localid = i.extras!!.getString("LOCALID")
+        canchaid = i.extras!!.getString("CANCHAID")
+
+
 
 
         Toast.makeText(this, fecha  + " - " + hora + " - " + departamento + " - " + departamento_distrito + " - " + distrito + " - " + fecha_hora + " - " + cancha_nombre + " - "  + local, Toast.LENGTH_LONG).show()
@@ -108,57 +116,70 @@ class Pagarreserva : AppCompatActivity() {
     when(hora){
 
         "06:00 - 07:00" -> {
-            valormonto.text = "S/.80"
+            valormonto.text = "80"
+            montox = "80"
 
         }
 
         "07:00 - 08:00" -> {
-            valormonto.text = "S/.80"
+            valormonto.text = "80"
+            montox = "80"
+
 
         }
 
         "08:00-09:00" -> {
-            valormonto.text = "S/.80"
+            valormonto.text = "80"
+            montox = "80"
 
         }
 
         "09:00 - 10:00" -> {
-            valormonto.text = "S/.80"
+            valormonto.text = "80"
+            montox = "80"
 
         }
 
         "10:00 - 11:00" -> {
-            valormonto.text = "S/.80"
+            valormonto.text = "80"
+            montox = "80"
 
         }
 
         "11:00 - 12:00" -> {
-            valormonto.text = "S/.80"
+            valormonto.text = "80"
+            montox = "80"
 
         }
 
         "12:00 - 13:00" -> {
-            valormonto.text = "S/.80"
+            valormonto.text = "80"
+            montox = "80"
 
         }
         "13:00 - 14:00" -> {
-            valormonto.text = "S/.80"
+            valormonto.text = "80"
+            montox = "80"
 
         }
         "14:00 - 15:00" -> {
-            valormonto.text = "S/.80"
+            valormonto.text = "80"
+            montox = "80"
 
         }
         "15:00 - 16:00" -> {
-            valormonto.text = "S/.80"
+            valormonto.text = "80"
+            montox = "80"
 
         }
         "16:00 - 17:00" -> {
-            valormonto.text = "S/.80"
+            valormonto.text = "80"
+            montox = "80"
 
         }
         "17:00 - 18:00" -> {
-            valormonto.text = "S/.80"
+            valormonto.text = "80"
+            montox = "80"
 
         }
 
@@ -192,6 +213,8 @@ class Pagarreserva : AppCompatActivity() {
 
 
             fecha = i.extras!!.getString("FECHA")
+            fechareserva = i.extras!!.getString("FECHARESERVA")
+
             hora = i.extras!!.getString("HORA")
             departamento = i.extras!!.getString("DEPARTAMENTO")
             departamento_distrito = i.extras!!.getString("DEPARTAMENTO_DISTRITO")
@@ -200,11 +223,13 @@ class Pagarreserva : AppCompatActivity() {
             cancha_nombre = i.extras!!.getString("CANCHA_NOMBRE")
             local = i.extras!!.getString("LOCAL")
 
+            localid = i.extras!!.getString("LOCALID")
+            canchaid = i.extras!!.getString("CANCHAID")
 
             if (val_nombretarjeta != "" && val_cardnumber != "" && val_month != "" && val_year != "" && valcvv != "" && val_codigopostal != ""){
-                Toast.makeText(this, "se puede pagar" , Toast.LENGTH_LONG).show()
+                Toast.makeText(this, fecha , Toast.LENGTH_LONG).show()
 
-                registrarpago(val_nombretarjeta!!, val_cardnumber!!, val_month!!, val_year!!, valcvv!!, val_codigopostal!!,fecha!!,hora!!,departamento!!,departamento_distrito!!,distrito!!,fecha_hora!!,cancha_nombre!!,local!!)
+                registrarpago(val_nombretarjeta!!, val_cardnumber!!, val_month!!, val_year!!, valcvv!!, val_codigopostal!!,fecha!!,hora!!,departamento!!,departamento_distrito!!,distrito!!,fecha_hora!!,cancha_nombre!!,local!!,fechareserva!!,localid!!,canchaid!!)
 
             }
             else{
@@ -238,11 +263,25 @@ class Pagarreserva : AppCompatActivity() {
                       distrito: String,
                       fecha_hora: String,
                       cancha_nombre: String,
-                      local: String) {
+                      local: String,
+                      fechareserva:String,
+
+                      localid:String,
+                      canchaid:String) {
+
+        val Registered: Boolean?
+        val usuario: String?
+        val password: String?
+
+        val sharedPref = PreferenceManager.getDefaultSharedPreferences(this)
+        Registered = sharedPref.getBoolean("Registered", false)
+        usuario = sharedPref.getString("Username", "")
+        password = sharedPref.getString("Password", "")
+
 
 
         val body = FormBody.Builder()
-                .add("VALORESRESERVA", "$nombre_tarjeta,$numero_tarjeta,$mes_tarjeta,$anio_tarjeta,$ccv_tarjeta,$codigopostal_tarjeta,$fecha_reserva,$hora,$departamento,$departamento_distrito,$distrito,$fecha_hora,$cancha_nombre,$local")
+                .add("VALORESRESERVA", "$nombre_tarjeta&$numero_tarjeta&$mes_tarjeta&$anio_tarjeta&$ccv_tarjeta&$codigopostal_tarjeta&$fecha_reserva&$hora&$departamento&$departamento_distrito&$distrito&$fecha_hora&$cancha_nombre&$local&$usuario&$password&${valormonto.text}&$fechareserva&$localid&$canchaid")
                 .build()
         val request = Request.Builder().url(BASE_URL).post(body).build()
         val call = client.newCall(request)

@@ -299,21 +299,27 @@ public class Seleccionarcanchas extends AppCompatActivity  implements BottomNavi
                     String nombre = value.getNombre();
                     String foto = value.getFoto();
 
+                    String localid = value.getLocalid();
+                    String canchaid = value.getCanchaid();
+
                     fire.setDistrito(distrito);
                     fire.setLocal(local);
                     fire.setNombre(nombre);
                     fire.setFoto(foto);
 
+                    fire.setLocalid(localid);
+                    fire.setCanchaid(canchaid);
+
                     list.add(fire);
 
 
-                    Canchasadapter recyclerAdapter = new Canchasadapter(list, Seleccionarcanchas.this);
+                    Canchasadapter canchasadapter = new Canchasadapter(list, Seleccionarcanchas.this);
                     RecyclerView.LayoutManager recyce = new GridLayoutManager(Seleccionarcanchas.this, 1);
                     /// RecyclerView.LayoutManager recyce = new LinearLayoutManager(MainActivity.this);
                     // recycle.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10), true));
                     recycle.setLayoutManager(recyce);
                     recycle.setItemAnimator(new DefaultItemAnimator());
-                    recycle.setAdapter(recyclerAdapter);
+                    recycle.setAdapter(canchasadapter);
 
                 }
             }
