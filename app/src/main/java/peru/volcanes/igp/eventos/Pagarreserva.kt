@@ -115,13 +115,13 @@ class Pagarreserva : AppCompatActivity() {
 
     when(hora){
 
-        "06:00 - 07:00" -> {
+        "06:00-07:00" -> {
             valormonto.text = "80"
             montox = "80"
 
         }
 
-        "07:00 - 08:00" -> {
+        "07:00-08:00" -> {
             valormonto.text = "80"
             montox = "80"
 
@@ -134,55 +134,84 @@ class Pagarreserva : AppCompatActivity() {
 
         }
 
-        "09:00 - 10:00" -> {
+        "09:00-10:00" -> {
             valormonto.text = "80"
             montox = "80"
 
         }
 
-        "10:00 - 11:00" -> {
+        "10:00-11:00" -> {
             valormonto.text = "80"
             montox = "80"
 
         }
 
-        "11:00 - 12:00" -> {
+        "11:00-12:00" -> {
             valormonto.text = "80"
             montox = "80"
 
         }
 
-        "12:00 - 13:00" -> {
+        "12:00-13:00" -> {
             valormonto.text = "80"
             montox = "80"
 
         }
-        "13:00 - 14:00" -> {
+        "13:00-14:00" -> {
             valormonto.text = "80"
             montox = "80"
 
         }
-        "14:00 - 15:00" -> {
+        "14:00-15:00" -> {
             valormonto.text = "80"
             montox = "80"
 
         }
-        "15:00 - 16:00" -> {
+        "15:00-16:00" -> {
             valormonto.text = "80"
             montox = "80"
 
         }
-        "16:00 - 17:00" -> {
+        "16:00-17:00" -> {
             valormonto.text = "80"
             montox = "80"
 
         }
-        "17:00 - 18:00" -> {
+        "17:00-18:00" -> {
             valormonto.text = "80"
             montox = "80"
 
         }
+        "18:00-19:00" -> {
+            valormonto.text = "100"
+            montox = "100"
 
+        }
+        "19:00-20:00" -> {
+            valormonto.text = "100"
+            montox = "100"
+
+        }
+        "20:00-21:00" -> {
+            valormonto.text = "100"
+            montox = "100"
+
+        }
+        "21:00-22:00" -> {
+            valormonto.text = "100"
+            montox = "100"
+
+        }
+        "22:00-23:00" -> {
+            valormonto.text = "100"
+            montox = "100"
+
+        }
+        "23:00-24:00" -> {
+            valormonto.text = "100"
+            montox = "100"
+
+        }
 
     }
 

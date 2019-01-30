@@ -2,9 +2,11 @@ package peru.volcanes.igp.eventos
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.nfc.Tag
+import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
@@ -114,12 +116,19 @@ class Elegirhoraa : AppCompatActivity()  {
     lateinit var texto_horario11: String
     lateinit var texto_horario12: String
 
+    lateinit var texto_horario13: String
+    lateinit var texto_horario14: String
+    lateinit var texto_horario15: String
+    lateinit var texto_horario16: String
+    lateinit var texto_horario17: String
+    lateinit var texto_horario18: String
 
 
     lateinit var datestringx:String
     lateinit var dateformatx:SimpleDateFormat
     lateinit var convertdate:Date
 
+    @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_elegirhoraa)
@@ -172,6 +181,12 @@ class Elegirhoraa : AppCompatActivity()  {
         var horario10: Button = findViewById(R.id.horario10) as Button
         var horario11: Button = findViewById(R.id.horario11) as Button
         var horario12: Button = findViewById(R.id.horario12) as Button
+        var horario13: Button = findViewById(R.id.horario13) as Button
+        var horario14: Button = findViewById(R.id.horario14) as Button
+        var horario15: Button = findViewById(R.id.horario15) as Button
+        var horario16: Button = findViewById(R.id.horario16) as Button
+        var horario17: Button = findViewById(R.id.horario17) as Button
+        var horario18: Button = findViewById(R.id.horario18) as Button
 
         texto_horario1 = horario1.text.toString()
         texto_horario2 = horario2.text.toString()
@@ -186,8 +201,15 @@ class Elegirhoraa : AppCompatActivity()  {
         texto_horario11 = horario11.text.toString()
         texto_horario12 = horario12.text.toString()
 
+        texto_horario13 = horario13.text.toString()
+        texto_horario14 = horario14.text.toString()
+        texto_horario15 = horario15.text.toString()
+        texto_horario16 = horario16.text.toString()
+        texto_horario17 = horario17.text.toString()
+        texto_horario18 = horario18.text.toString()
 
-          calendario      = findViewById(R.id.calendarView) as MaterialCalendarView
+
+        calendario      = findViewById(R.id.calendarView) as MaterialCalendarView
 
           calendar     = Calendar.getInstance()
 
@@ -245,7 +267,31 @@ class Elegirhoraa : AppCompatActivity()  {
 
             Toast.makeText(this, dia2+valtostring2+anio2 , Toast.LENGTH_LONG).show()
 
-            horario1.setBackgroundColor(Color.parseColor("#00cf7c"))
+
+
+
+            horario1.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+
+            horario2.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario3.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario4.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario5.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario6.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario7.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario8.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario9.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario10.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario11.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario12.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario13.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario14.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario15.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario16.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario17.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario18.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+
+/*
+            ///  horario1.backgroundTintMode(Color.parseColor("#00cf7c"))
             horario2.setBackgroundColor(Color.parseColor("#00cf7c"))
             horario3.setBackgroundColor(Color.parseColor("#00cf7c"))
 
@@ -258,7 +304,7 @@ class Elegirhoraa : AppCompatActivity()  {
             horario10.setBackgroundColor(Color.parseColor("#00cf7c"))
             horario11.setBackgroundColor(Color.parseColor("#00cf7c"))
             horario12.setBackgroundColor(Color.parseColor("#00cf7c"))
-
+*/
             Verificardisponibilidad(texto_horario1, dia2+valtostring2+anio2)
 
             Verificardisponibilidad2(texto_horario2, dia2+valtostring2+anio2)
@@ -274,6 +320,12 @@ class Elegirhoraa : AppCompatActivity()  {
             Verificardisponibilidad11(texto_horario11, dia2+valtostring2+anio2)
             Verificardisponibilidad12(texto_horario12, dia2+valtostring2+anio2)
 
+            Verificardisponibilidad13(texto_horario13, dia2+valtostring2+anio2)
+            Verificardisponibilidad14(texto_horario14, dia2+valtostring2+anio2)
+            Verificardisponibilidad15(texto_horario15, dia2+valtostring2+anio2)
+            Verificardisponibilidad16(texto_horario16, dia2+valtostring2+anio2)
+            Verificardisponibilidad17(texto_horario17, dia2+valtostring2+anio2)
+            Verificardisponibilidad18(texto_horario18, dia2+valtostring2+anio2)
 
         }
 
@@ -288,9 +340,29 @@ class Elegirhoraa : AppCompatActivity()  {
             anio = date.year.toString()
 
 
+            horario1.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
 
+            horario2.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario3.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario4.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario5.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario6.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario7.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario8.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario9.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario10.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario11.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario12.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario13.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario14.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario15.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario16.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario17.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            horario18.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
 
-            horario1.setBackgroundColor(Color.parseColor("#00cf7c"))
+            // horario1.setBackgroundColor(Color.parseColor("#00cf7c"))
+
+            /*
             horario2.setBackgroundColor(Color.parseColor("#00cf7c"))
             horario3.setBackgroundColor(Color.parseColor("#00cf7c"))
 
@@ -303,7 +375,7 @@ class Elegirhoraa : AppCompatActivity()  {
             horario10.setBackgroundColor(Color.parseColor("#00cf7c"))
             horario11.setBackgroundColor(Color.parseColor("#00cf7c"))
             horario12.setBackgroundColor(Color.parseColor("#00cf7c"))
-
+*/
             Verificardisponibilidad(texto_horario1, dia+valtostring+anio)
 
             Verificardisponibilidad2(texto_horario2, dia+valtostring+anio)
@@ -320,88 +392,273 @@ class Elegirhoraa : AppCompatActivity()  {
             Verificardisponibilidad11(texto_horario11, dia+valtostring+anio)
             Verificardisponibilidad12(texto_horario12, dia+valtostring+anio)
 
+
+
+
+
+            Verificardisponibilidad13(texto_horario13, dia2+valtostring2+anio2)
+            Verificardisponibilidad14(texto_horario14, dia2+valtostring2+anio2)
+            Verificardisponibilidad15(texto_horario15, dia2+valtostring2+anio2)
+            Verificardisponibilidad16(texto_horario16, dia2+valtostring2+anio2)
+            Verificardisponibilidad17(texto_horario17, dia2+valtostring2+anio2)
+            Verificardisponibilidad18(texto_horario18, dia2+valtostring2+anio2)
+
         }
 
 
         horario1.setOnClickListener {
-
             valorhorario = horario1.getText() as String;
-
-
-            //  var sdf : SimpleDateFormat =   SimpleDateFormat("dd/MM/yyyy");
-          //  var dse : String = sdf.format(Date(calendar.da))
-
-/*
-
-            dia = date.day.toString()
-            mes = date.month.toString()
-            valint = mes.toInt() + 1
-            valtostring = valint.toString()
-            anio = date.year.toString()
-            */
-
-
-
-
-            //  Toast.makeText(this, valorhorario, Toast.LENGTH_LONG).show();
-            var ds  = horario1.background
-            var d = (ds as ColorDrawable).color
-            //   Toast.makeText(this, d.toString(), Toast.LENGTH_LONG).show()
-
-
-            if(d.toString() == "-16724100"){
+            var de:String =  horario1.backgroundTintList.defaultColor.toString()
+            Toast.makeText(this, de, Toast.LENGTH_LONG).show()
+            if(de == "-16720798"){
                 showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario1")
             }
             else{
                 Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
             }
-
-            /// -2740690
         }
 
-
         horario2.setOnClickListener {
-
-
             valorhorario = horario2.getText() as String;
-            //  Toast.makeText(this, valorhorario, Toast.LENGTH_LONG).show();
-            var ds  = horario2.background
-            var d = (ds as ColorDrawable).color
-            //   Toast.makeText(this, d.toString(), Toast.LENGTH_LONG).show()
-
-
-            if(d.toString() == "-16724100"){
+            var de:String =  horario2.backgroundTintList.defaultColor.toString()
+            Toast.makeText(this, de, Toast.LENGTH_LONG).show()
+            if(de == "-16720798"){
                 showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario2")
             }
             else{
                 Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
             }
-
-            /// -2740690
         }
 
-
         horario3.setOnClickListener {
-
-
             valorhorario = horario3.getText() as String;
-          //  Toast.makeText(this, valorhorario, Toast.LENGTH_LONG).show();
-            var ds  = horario3.background
-            var d = (ds as ColorDrawable).color
-         //   Toast.makeText(this, d.toString(), Toast.LENGTH_LONG).show()
-
-
-            if(d.toString() == "-16724100"){
+            //Toast.makeText(this, valorhorario, Toast.LENGTH_LONG).show();
+            var de:String =  horario3.backgroundTintList.defaultColor.toString()
+            Toast.makeText(this, de, Toast.LENGTH_LONG).show()
+            if(de == "-16720798"){
                 showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario3")
             }
             else{
                 Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
             }
+        }
 
-           /// -2740690
+        horario4.setOnClickListener {
+            valorhorario = horario4.getText() as String;
+            //Toast.makeText(this, valorhorario, Toast.LENGTH_LONG).show();
+            var de:String =  horario4.backgroundTintList.defaultColor.toString()
+            Toast.makeText(this, de, Toast.LENGTH_LONG).show()
+            if(de == "-16720798"){
+                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario3")
+            }
+            else{
+                Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
+            }
         }
 
 
+        horario5.setOnClickListener {
+            valorhorario = horario5.getText() as String;
+            //Toast.makeText(this, valorhorario, Toast.LENGTH_LONG).show();
+            var de:String =  horario5.backgroundTintList.defaultColor.toString()
+            Toast.makeText(this, de, Toast.LENGTH_LONG).show()
+            if(de == "-16720798"){
+                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario3")
+            }
+            else{
+                Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
+            }
+        }
+
+
+
+
+
+        horario6.setOnClickListener {
+            valorhorario = horario6.getText() as String;
+            //Toast.makeText(this, valorhorario, Toast.LENGTH_LONG).show();
+            var de:String =  horario6.backgroundTintList.defaultColor.toString()
+            Toast.makeText(this, de, Toast.LENGTH_LONG).show()
+            if(de == "-16720798"){
+                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario3")
+            }
+            else{
+                Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
+            }
+        }
+
+
+        horario7.setOnClickListener {
+            valorhorario = horario7.getText() as String;
+            //Toast.makeText(this, valorhorario, Toast.LENGTH_LONG).show();
+            var de:String =  horario7.backgroundTintList.defaultColor.toString()
+            Toast.makeText(this, de, Toast.LENGTH_LONG).show()
+            if(de == "-16720798"){
+                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario3")
+            }
+            else{
+                Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
+            }
+        }
+
+
+        horario8.setOnClickListener {
+            valorhorario = horario8.getText() as String;
+            //Toast.makeText(this, valorhorario, Toast.LENGTH_LONG).show();
+            var de:String =  horario8.backgroundTintList.defaultColor.toString()
+            Toast.makeText(this, de, Toast.LENGTH_LONG).show()
+            if(de == "-16720798"){
+                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario3")
+            }
+            else{
+                Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
+            }
+        }
+
+
+        horario9.setOnClickListener {
+            valorhorario = horario9.getText() as String;
+            //Toast.makeText(this, valorhorario, Toast.LENGTH_LONG).show();
+            var de:String =  horario9.backgroundTintList.defaultColor.toString()
+            Toast.makeText(this, de, Toast.LENGTH_LONG).show()
+            if(de == "-16720798"){
+                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario3")
+            }
+            else{
+                Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
+            }
+        }
+
+
+        horario10.setOnClickListener {
+            valorhorario = horario10.getText() as String;
+            //Toast.makeText(this, valorhorario, Toast.LENGTH_LONG).show();
+            var de:String =  horario10.backgroundTintList.defaultColor.toString()
+            Toast.makeText(this, de, Toast.LENGTH_LONG).show()
+            if(de == "-16720798"){
+                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario3")
+            }
+            else{
+                Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
+            }
+        }
+
+        horario11.setOnClickListener {
+            valorhorario = horario11.getText() as String;
+            //Toast.makeText(this, valorhorario, Toast.LENGTH_LONG).show();
+            var de:String =  horario11.backgroundTintList.defaultColor.toString()
+            Toast.makeText(this, de, Toast.LENGTH_LONG).show()
+            if(de == "-16720798"){
+                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario3")
+            }
+            else{
+                Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
+            }
+        }
+
+
+        horario12.setOnClickListener {
+            valorhorario = horario12.getText() as String;
+            //Toast.makeText(this, valorhorario, Toast.LENGTH_LONG).show();
+            var de:String =  horario12.backgroundTintList.defaultColor.toString()
+            Toast.makeText(this, de, Toast.LENGTH_LONG).show()
+            if(de == "-16720798"){
+                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario3")
+            }
+            else{
+                Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
+            }
+        }
+
+
+
+        horario13.setOnClickListener {
+            valorhorario = horario13.getText() as String;
+            //Toast.makeText(this, valorhorario, Toast.LENGTH_LONG).show();
+            var de:String =  horario13.backgroundTintList.defaultColor.toString()
+            Toast.makeText(this, de, Toast.LENGTH_LONG).show()
+            if(de == "-16720798"){
+                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario3")
+            }
+            else{
+                Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
+            }
+        }
+
+
+        horario14.setOnClickListener {
+            valorhorario = horario14.getText() as String;
+            //Toast.makeText(this, valorhorario, Toast.LENGTH_LONG).show();
+            var de:String =  horario14.backgroundTintList.defaultColor.toString()
+            Toast.makeText(this, de, Toast.LENGTH_LONG).show()
+            if(de == "-16720798"){
+                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario3")
+            }
+            else{
+                Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
+            }
+        }
+
+
+
+        horario15.setOnClickListener {
+            valorhorario = horario15.getText() as String;
+            //Toast.makeText(this, valorhorario, Toast.LENGTH_LONG).show();
+            var de:String =  horario15.backgroundTintList.defaultColor.toString()
+            Toast.makeText(this, de, Toast.LENGTH_LONG).show()
+            if(de == "-16720798"){
+                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario3")
+            }
+            else{
+                Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
+            }
+        }
+
+
+
+        horario16.setOnClickListener {
+            valorhorario = horario16.getText() as String;
+            //Toast.makeText(this, valorhorario, Toast.LENGTH_LONG).show();
+            var de:String =  horario16.backgroundTintList.defaultColor.toString()
+            Toast.makeText(this, de, Toast.LENGTH_LONG).show()
+            if(de == "-16720798"){
+                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario3")
+            }
+            else{
+                Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
+            }
+        }
+
+
+
+
+        horario17.setOnClickListener {
+            valorhorario = horario17.getText() as String;
+            //Toast.makeText(this, valorhorario, Toast.LENGTH_LONG).show();
+            var de:String =  horario17.backgroundTintList.defaultColor.toString()
+            Toast.makeText(this, de, Toast.LENGTH_LONG).show()
+            if(de == "-16720798"){
+                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario3")
+            }
+            else{
+                Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
+            }
+        }
+
+
+
+        horario18.setOnClickListener {
+            valorhorario = horario18.getText() as String;
+            //Toast.makeText(this, valorhorario, Toast.LENGTH_LONG).show();
+            var de:String =  horario18.backgroundTintList.defaultColor.toString()
+            Toast.makeText(this, de, Toast.LENGTH_LONG).show()
+            if(de == "-16720798"){
+                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario3")
+            }
+            else{
+                Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
+            }
+        }
 
 
         sliderz = findViewById<View>(R.id.sliderz) as ImageView
@@ -725,12 +982,18 @@ class Elegirhoraa : AppCompatActivity()  {
         Toast.makeText(this, intensidad + hora, Toast.LENGTH_LONG).show()
 
         if (intensidad == null){
-            horario1.setBackgroundColor(Color.parseColor("#00cf7c"))
+           // horario1.setBackgroundColor(Color.parseColor("#00cf7c"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario1.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
+            }
 
 
         }
         else{
-            horario1.setBackgroundColor(Color.parseColor("#d62e2e"))
+           // horario1.setBackgroundColor(Color.parseColor("#d62e2e"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario1.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
+            }
 
 
         }
@@ -783,11 +1046,17 @@ class Elegirhoraa : AppCompatActivity()  {
         Toast.makeText(this, intensidad + hora, Toast.LENGTH_LONG).show()
 
         if (intensidad == null){
-            horario2.setBackgroundColor(Color.parseColor("#00cf7c"))
+           // horario2.setBackgroundColor(Color.parseColor("#00cf7c"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario2.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            }
 
         }
         else{
-            horario2.setBackgroundColor(Color.parseColor("#d62e2e"))
+           // horario2.setBackgroundColor(Color.parseColor("#d62e2e"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario2.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
+            }
 
         }
     }
@@ -837,11 +1106,17 @@ class Elegirhoraa : AppCompatActivity()  {
         Toast.makeText(this, intensidad + hora, Toast.LENGTH_LONG).show()
 
         if (intensidad == null){
-            horario3.setBackgroundColor(Color.parseColor("#00cf7c"))
+           // horario3.setBackgroundColor(Color.parseColor("#00cf7c"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario3.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            }
 
         }
         else{
-            horario3.setBackgroundColor(Color.parseColor("#d62e2e"))
+            //horario3.setBackgroundColor(Color.parseColor("#d62e2e"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario3.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
+            }
 
         }
     }
@@ -889,11 +1164,17 @@ class Elegirhoraa : AppCompatActivity()  {
         Toast.makeText(this, intensidad + hora, Toast.LENGTH_LONG).show()
 
         if (intensidad == null){
-            horario4.setBackgroundColor(Color.parseColor("#00cf7c"))
+           // horario4.setBackgroundColor(Color.parseColor("#00cf7c"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario4.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            }
 
         }
         else{
-            horario4.setBackgroundColor(Color.parseColor("#d62e2e"))
+          //  horario4.setBackgroundColor(Color.parseColor("#d62e2e"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario4.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
+            }
 
         }
     }
@@ -944,11 +1225,17 @@ class Elegirhoraa : AppCompatActivity()  {
         Toast.makeText(this, intensidad + hora, Toast.LENGTH_LONG).show()
 
         if (intensidad == null){
-            horario5.setBackgroundColor(Color.parseColor("#00cf7c"))
+            //horario5.setBackgroundColor(Color.parseColor("#00cf7c"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario5.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            }
 
         }
         else{
-            horario5.setBackgroundColor(Color.parseColor("#d62e2e"))
+            //horario5.setBackgroundColor(Color.parseColor("#d62e2e"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario5.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
+            }
 
         }
     }
@@ -998,11 +1285,17 @@ class Elegirhoraa : AppCompatActivity()  {
         Toast.makeText(this, intensidad + hora, Toast.LENGTH_LONG).show()
 
         if (intensidad == null){
-            horario6.setBackgroundColor(Color.parseColor("#00cf7c"))
+            //horario6.setBackgroundColor(Color.parseColor("#00cf7c"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario6.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            }
 
         }
         else{
-            horario6.setBackgroundColor(Color.parseColor("#d62e2e"))
+            //horario6.setBackgroundColor(Color.parseColor("#d62e2e"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario6.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
+            }
 
         }
     }
@@ -1052,11 +1345,17 @@ class Elegirhoraa : AppCompatActivity()  {
         Toast.makeText(this, intensidad + hora, Toast.LENGTH_LONG).show()
 
         if (intensidad == null){
-            horario7.setBackgroundColor(Color.parseColor("#00cf7c"))
+            //horario7.setBackgroundColor(Color.parseColor("#00cf7c"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario7.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            }
 
         }
         else{
-            horario7.setBackgroundColor(Color.parseColor("#d62e2e"))
+           // horario7.setBackgroundColor(Color.parseColor("#d62e2e"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario7.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
+            }
 
         }
     }
@@ -1106,11 +1405,17 @@ class Elegirhoraa : AppCompatActivity()  {
         Toast.makeText(this, intensidad + hora, Toast.LENGTH_LONG).show()
 
         if (intensidad == null){
-            horario8.setBackgroundColor(Color.parseColor("#00cf7c"))
+            //horario8.setBackgroundColor(Color.parseColor("#00cf7c"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario8.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            }
 
         }
         else{
-            horario8.setBackgroundColor(Color.parseColor("#d62e2e"))
+           // horario8.setBackgroundColor(Color.parseColor("#d62e2e"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario8.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
+            }
 
         }
     }
@@ -1162,11 +1467,17 @@ class Elegirhoraa : AppCompatActivity()  {
         Toast.makeText(this, intensidad + hora, Toast.LENGTH_LONG).show()
 
         if (intensidad == null){
-            horario9.setBackgroundColor(Color.parseColor("#00cf7c"))
+            //horario9.setBackgroundColor(Color.parseColor("#00cf7c"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario9.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            }
 
         }
         else{
-            horario9.setBackgroundColor(Color.parseColor("#d62e2e"))
+            //horario9.setBackgroundColor(Color.parseColor("#d62e2e"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario9.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
+            }
 
         }
     }
@@ -1219,11 +1530,17 @@ class Elegirhoraa : AppCompatActivity()  {
         Toast.makeText(this, intensidad + hora, Toast.LENGTH_LONG).show()
 
         if (intensidad == null){
-            horario10.setBackgroundColor(Color.parseColor("#00cf7c"))
+            //horario10.setBackgroundColor(Color.parseColor("#00cf7c"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario10.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            }
 
         }
         else{
-            horario10.setBackgroundColor(Color.parseColor("#d62e2e"))
+           // horario10.setBackgroundColor(Color.parseColor("#d62e2e"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario10.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
+            }
 
         }
     }
@@ -1274,11 +1591,17 @@ class Elegirhoraa : AppCompatActivity()  {
         Toast.makeText(this, intensidad + hora, Toast.LENGTH_LONG).show()
 
         if (intensidad == null){
-            horario11.setBackgroundColor(Color.parseColor("#00cf7c"))
+           // horario11.setBackgroundColor(Color.parseColor("#00cf7c"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario11.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            }
 
         }
         else{
-            horario11.setBackgroundColor(Color.parseColor("#d62e2e"))
+            //horario11.setBackgroundColor(Color.parseColor("#d62e2e"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario11.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
+            }
 
         }
     }
@@ -1331,14 +1654,418 @@ class Elegirhoraa : AppCompatActivity()  {
         Toast.makeText(this, intensidad + hora, Toast.LENGTH_LONG).show()
 
         if (intensidad == null){
-            horario12.setBackgroundColor(Color.parseColor("#00cf7c"))
+          //  horario12.setBackgroundColor(Color.parseColor("#00cf7c"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario12.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            }
 
         }
         else{
-            horario12.setBackgroundColor(Color.parseColor("#d62e2e"))
+            //horario12.setBackgroundColor(Color.parseColor("#d62e2e"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario12.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
+            }
 
         }
     }
+
+
+
+
+
+
+
+
+    fun Verificardisponibilidad13(valor1:String, valor2:String): String? {
+
+        var mFirebaseDatabase2: DatabaseReference? = null
+        FirebaseDatabase.getInstance()
+        val database2 = FirebaseDatabase.getInstance()
+        mFirebaseDatabase2 = database2.getReference("reservas").child("reportes")
+        mFirebaseDatabase2.orderByChild("fecha_hora").equalTo(valor2+"_"+valor1).limitToFirst(1).addChildEventListener(object : ChildEventListener {
+            override fun onChildAdded(dataSnapshot: DataSnapshot, prevChildKey: String?) {
+                val sreporte4 = dataSnapshot.getValue<Reservas>(Reservas::class.java)
+                guardar_prefkk13(sreporte4)
+            }
+            override fun onChildChanged(dataSnapshot: DataSnapshot, prevChildKey: String?) {
+            }
+            override fun onChildRemoved(dataSnapshot: DataSnapshot) {
+            }
+            override fun onChildMoved(dataSnapshot: DataSnapshot, prevChildKey: String?) {
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+            }
+        })
+        var ds: String= ""
+        return   ds
+    }
+
+    fun guardar_prefkk13(sreporte: Reservas?) {
+        var prefs = getSharedPreferences("ultsismok", Context.MODE_PRIVATE)
+        var editor = prefs.edit()
+        editor.putString("incategoriak", sreporte!!.getFecha())
+        editor.putString("inreferenciak", sreporte!!.getHora())
+
+        editor.apply()
+        mostrar_ult_sismo13()
+    }
+
+    @SuppressLint("ResourceAsColor")
+    fun mostrar_ult_sismo13() {
+        var prefs = getSharedPreferences("ultsismok", Context.MODE_PRIVATE)
+        intensidad = prefs.getString("incategh,jhoriak", "")
+        hora = prefs.getString("inreferenciak", "")
+        Toast.makeText(this, intensidad + hora, Toast.LENGTH_LONG).show()
+
+        if (intensidad == null){
+            //  horario12.setBackgroundColor(Color.parseColor("#00cf7c"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario13.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            }
+
+        }
+        else{
+            //horario12.setBackgroundColor(Color.parseColor("#d62e2e"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario13.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
+            }
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+    fun Verificardisponibilidad14(valor1:String, valor2:String): String? {
+
+        var mFirebaseDatabase2: DatabaseReference? = null
+        FirebaseDatabase.getInstance()
+        val database2 = FirebaseDatabase.getInstance()
+        mFirebaseDatabase2 = database2.getReference("reservas").child("reportes")
+        mFirebaseDatabase2.orderByChild("fecha_hora").equalTo(valor2+"_"+valor1).limitToFirst(1).addChildEventListener(object : ChildEventListener {
+            override fun onChildAdded(dataSnapshot: DataSnapshot, prevChildKey: String?) {
+                val sreporte4 = dataSnapshot.getValue<Reservas>(Reservas::class.java)
+                guardar_prefkk14(sreporte4)
+            }
+            override fun onChildChanged(dataSnapshot: DataSnapshot, prevChildKey: String?) {
+            }
+            override fun onChildRemoved(dataSnapshot: DataSnapshot) {
+            }
+            override fun onChildMoved(dataSnapshot: DataSnapshot, prevChildKey: String?) {
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+            }
+        })
+        var ds: String= ""
+        return   ds
+    }
+
+    fun guardar_prefkk14(sreporte: Reservas?) {
+        var prefs = getSharedPreferences("ultsismok", Context.MODE_PRIVATE)
+        var editor = prefs.edit()
+        editor.putString("incategoriak", sreporte!!.getFecha())
+        editor.putString("inreferenciak", sreporte!!.getHora())
+
+        editor.apply()
+        mostrar_ult_sismo14()
+    }
+
+    @SuppressLint("ResourceAsColor")
+    fun mostrar_ult_sismo14() {
+        var prefs = getSharedPreferences("ultsismok", Context.MODE_PRIVATE)
+        intensidad = prefs.getString("incategh,jhoriak", "")
+        hora = prefs.getString("inreferenciak", "")
+        Toast.makeText(this, intensidad + hora, Toast.LENGTH_LONG).show()
+
+        if (intensidad == null){
+            //  horario12.setBackgroundColor(Color.parseColor("#00cf7c"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario14.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            }
+
+        }
+        else{
+            //horario12.setBackgroundColor(Color.parseColor("#d62e2e"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario14.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
+            }
+
+        }
+    }
+
+
+
+
+
+
+
+
+    fun Verificardisponibilidad15(valor1:String, valor2:String): String? {
+
+        var mFirebaseDatabase2: DatabaseReference? = null
+        FirebaseDatabase.getInstance()
+        val database2 = FirebaseDatabase.getInstance()
+        mFirebaseDatabase2 = database2.getReference("reservas").child("reportes")
+        mFirebaseDatabase2.orderByChild("fecha_hora").equalTo(valor2+"_"+valor1).limitToFirst(1).addChildEventListener(object : ChildEventListener {
+            override fun onChildAdded(dataSnapshot: DataSnapshot, prevChildKey: String?) {
+                val sreporte4 = dataSnapshot.getValue<Reservas>(Reservas::class.java)
+                guardar_prefkk15(sreporte4)
+            }
+            override fun onChildChanged(dataSnapshot: DataSnapshot, prevChildKey: String?) {
+            }
+            override fun onChildRemoved(dataSnapshot: DataSnapshot) {
+            }
+            override fun onChildMoved(dataSnapshot: DataSnapshot, prevChildKey: String?) {
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+            }
+        })
+        var ds: String= ""
+        return   ds
+    }
+
+    fun guardar_prefkk15(sreporte: Reservas?) {
+        var prefs = getSharedPreferences("ultsismok", Context.MODE_PRIVATE)
+        var editor = prefs.edit()
+        editor.putString("incategoriak", sreporte!!.getFecha())
+        editor.putString("inreferenciak", sreporte!!.getHora())
+
+        editor.apply()
+        mostrar_ult_sismo15()
+    }
+
+    @SuppressLint("ResourceAsColor")
+    fun mostrar_ult_sismo15() {
+        var prefs = getSharedPreferences("ultsismok", Context.MODE_PRIVATE)
+        intensidad = prefs.getString("incategh,jhoriak", "")
+        hora = prefs.getString("inreferenciak", "")
+        Toast.makeText(this, intensidad + hora, Toast.LENGTH_LONG).show()
+
+        if (intensidad == null){
+            //  horario12.setBackgroundColor(Color.parseColor("#00cf7c"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario15.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            }
+
+        }
+        else{
+            //horario12.setBackgroundColor(Color.parseColor("#d62e2e"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario15.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
+            }
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    fun Verificardisponibilidad16(valor1:String, valor2:String): String? {
+
+        var mFirebaseDatabase2: DatabaseReference? = null
+        FirebaseDatabase.getInstance()
+        val database2 = FirebaseDatabase.getInstance()
+        mFirebaseDatabase2 = database2.getReference("reservas").child("reportes")
+        mFirebaseDatabase2.orderByChild("fecha_hora").equalTo(valor2+"_"+valor1).limitToFirst(1).addChildEventListener(object : ChildEventListener {
+            override fun onChildAdded(dataSnapshot: DataSnapshot, prevChildKey: String?) {
+                val sreporte4 = dataSnapshot.getValue<Reservas>(Reservas::class.java)
+                guardar_prefkk16(sreporte4)
+            }
+            override fun onChildChanged(dataSnapshot: DataSnapshot, prevChildKey: String?) {
+            }
+            override fun onChildRemoved(dataSnapshot: DataSnapshot) {
+            }
+            override fun onChildMoved(dataSnapshot: DataSnapshot, prevChildKey: String?) {
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+            }
+        })
+        var ds: String= ""
+        return   ds
+    }
+
+    fun guardar_prefkk16(sreporte: Reservas?) {
+        var prefs = getSharedPreferences("ultsismok", Context.MODE_PRIVATE)
+        var editor = prefs.edit()
+        editor.putString("incategoriak", sreporte!!.getFecha())
+        editor.putString("inreferenciak", sreporte!!.getHora())
+
+        editor.apply()
+        mostrar_ult_sismo16()
+    }
+
+    @SuppressLint("ResourceAsColor")
+    fun mostrar_ult_sismo16() {
+        var prefs = getSharedPreferences("ultsismok", Context.MODE_PRIVATE)
+        intensidad = prefs.getString("incategh,jhoriak", "")
+        hora = prefs.getString("inreferenciak", "")
+        Toast.makeText(this, intensidad + hora, Toast.LENGTH_LONG).show()
+
+        if (intensidad == null){
+            //  horario12.setBackgroundColor(Color.parseColor("#00cf7c"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario16.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            }
+
+        }
+        else{
+            //horario12.setBackgroundColor(Color.parseColor("#d62e2e"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario16.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
+            }
+
+        }
+    }
+
+
+
+
+
+
+    fun Verificardisponibilidad17(valor1:String, valor2:String): String? {
+
+        var mFirebaseDatabase2: DatabaseReference? = null
+        FirebaseDatabase.getInstance()
+        val database2 = FirebaseDatabase.getInstance()
+        mFirebaseDatabase2 = database2.getReference("reservas").child("reportes")
+        mFirebaseDatabase2.orderByChild("fecha_hora").equalTo(valor2+"_"+valor1).limitToFirst(1).addChildEventListener(object : ChildEventListener {
+            override fun onChildAdded(dataSnapshot: DataSnapshot, prevChildKey: String?) {
+                val sreporte4 = dataSnapshot.getValue<Reservas>(Reservas::class.java)
+                guardar_prefkk17(sreporte4)
+            }
+            override fun onChildChanged(dataSnapshot: DataSnapshot, prevChildKey: String?) {
+            }
+            override fun onChildRemoved(dataSnapshot: DataSnapshot) {
+            }
+            override fun onChildMoved(dataSnapshot: DataSnapshot, prevChildKey: String?) {
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+            }
+        })
+        var ds: String= ""
+        return   ds
+    }
+
+    fun guardar_prefkk17(sreporte: Reservas?) {
+        var prefs = getSharedPreferences("ultsismok", Context.MODE_PRIVATE)
+        var editor = prefs.edit()
+        editor.putString("incategoriak", sreporte!!.getFecha())
+        editor.putString("inreferenciak", sreporte!!.getHora())
+
+        editor.apply()
+        mostrar_ult_sismo17()
+    }
+
+    @SuppressLint("ResourceAsColor")
+    fun mostrar_ult_sismo17() {
+        var prefs = getSharedPreferences("ultsismok", Context.MODE_PRIVATE)
+        intensidad = prefs.getString("incategh,jhoriak", "")
+        hora = prefs.getString("inreferenciak", "")
+        Toast.makeText(this, intensidad + hora, Toast.LENGTH_LONG).show()
+
+        if (intensidad == null){
+            //  horario12.setBackgroundColor(Color.parseColor("#00cf7c"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario17.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            }
+
+        }
+        else{
+            //horario12.setBackgroundColor(Color.parseColor("#d62e2e"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario17.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
+            }
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+    fun Verificardisponibilidad18(valor1:String, valor2:String): String? {
+
+        var mFirebaseDatabase2: DatabaseReference? = null
+        FirebaseDatabase.getInstance()
+        val database2 = FirebaseDatabase.getInstance()
+        mFirebaseDatabase2 = database2.getReference("reservas").child("reportes")
+        mFirebaseDatabase2.orderByChild("fecha_hora").equalTo(valor2+"_"+valor1).limitToFirst(1).addChildEventListener(object : ChildEventListener {
+            override fun onChildAdded(dataSnapshot: DataSnapshot, prevChildKey: String?) {
+                val sreporte4 = dataSnapshot.getValue<Reservas>(Reservas::class.java)
+                guardar_prefkk18(sreporte4)
+            }
+            override fun onChildChanged(dataSnapshot: DataSnapshot, prevChildKey: String?) {
+            }
+            override fun onChildRemoved(dataSnapshot: DataSnapshot) {
+            }
+            override fun onChildMoved(dataSnapshot: DataSnapshot, prevChildKey: String?) {
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+            }
+        })
+        var ds: String= ""
+        return   ds
+    }
+
+    fun guardar_prefkk18(sreporte: Reservas?) {
+        var prefs = getSharedPreferences("ultsismok", Context.MODE_PRIVATE)
+        var editor = prefs.edit()
+        editor.putString("incategoriak", sreporte!!.getFecha())
+        editor.putString("inreferenciak", sreporte!!.getHora())
+
+        editor.apply()
+        mostrar_ult_sismo18()
+    }
+
+    @SuppressLint("ResourceAsColor")
+    fun mostrar_ult_sismo18() {
+        var prefs = getSharedPreferences("ultsismok", Context.MODE_PRIVATE)
+        intensidad = prefs.getString("incategh,jhoriak", "")
+        hora = prefs.getString("inreferenciak", "")
+        Toast.makeText(this, intensidad + hora, Toast.LENGTH_LONG).show()
+
+        if (intensidad == null){
+            //  horario12.setBackgroundColor(Color.parseColor("#00cf7c"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario18.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.verde)))
+            }
+
+        }
+        else{
+            //horario12.setBackgroundColor(Color.parseColor("#d62e2e"))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                horario18.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
+            }
+
+        }
+    }
+
+
 
 
     internal fun setupDrawerToggle() {

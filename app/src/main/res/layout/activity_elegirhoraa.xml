@@ -128,9 +128,10 @@
                     style="@style/textohorario"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="2px"
                     android:layout_weight="1"
-                    android:text="06:00 - 07:00" />
+                    android:text="06:00-07:00"
+                    android:textAllCaps="false"
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/horario2"
@@ -138,9 +139,8 @@
                     android:layout_width="match_parent"
 
                     android:layout_height="match_parent"
-                    android:layout_margin="2px"
-                    android:layout_weight="1"
-                    android:text="07:00 - 08:00" />
+                     android:layout_weight="1"
+                    android:text="07:00-08:00" />
 
                 <Button
                     android:id="@+id/horario3"
@@ -148,70 +148,30 @@
                     style="@style/textohorario"
 
                     android:layout_height="match_parent"
-                    android:layout_margin="2px"
-                    android:layout_weight="1"
+                     android:layout_weight="1"
                     android:text="08:00-09:00" />
 
 
                 <Button
                     android:id="@+id/horario4"
-                    android:layout_width="match_parent"
                     style="@style/textohorario"
+                    android:layout_width="match_parent"
 
                     android:layout_height="match_parent"
-                    android:layout_margin="2px"
-                    android:layout_weight="1"
-                    android:text="09:00 - 10:00" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
+                     android:layout_weight="1"
+                    android:text="09:00-10:00" />
 
 
                 <Button
                     android:id="@+id/horario5"
-                    android:layout_width="match_parent"
                     style="@style/textohorario"
+                    android:layout_width="match_parent"
 
                     android:layout_height="match_parent"
-                    android:layout_margin="2px"
-                    android:layout_weight="1"
-                    android:text="10:00 - 11:00" />
-
-                <Button
-                    android:id="@+id/horario6"
-                    android:layout_width="match_parent"
-                    style="@style/textohorario"
-
-                    android:layout_height="match_parent"
-                    android:layout_margin="2px"
-                    android:layout_weight="1"
-                    android:text="11:00 - 12:00" />
+                     android:layout_weight="1"
+                    android:text="10:00-11:00" />
 
 
-                <Button
-                    android:id="@+id/horario7"
-                    android:layout_width="match_parent"
-                    style="@style/textohorario"
-
-                    android:layout_height="match_parent"
-                    android:layout_margin="2px"
-                    android:layout_weight="1"
-                    android:text="12:00 - 13:00" />
-
-                <Button
-                    android:id="@+id/horario8"
-                    android:layout_width="match_parent"
-                    style="@style/textohorario"
-
-                    android:layout_height="match_parent"
-                    android:layout_margin="2px"
-                    android:layout_weight="1"
-                    android:text="13:00 - 14:00" />
 
             </TableRow>
 
@@ -220,57 +180,159 @@
                 android:layout_height="wrap_content">
 
 
+
                 <Button
-                    android:id="@+id/horario9"
-                    android:layout_width="match_parent"
+                    android:id="@+id/horario6"
                     style="@style/textohorario"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="11:00-12:00" />
+
+                <Button
+                    android:id="@+id/horario7"
+                    style="@style/textohorario"
+                    android:layout_width="match_parent"
 
                     android:layout_height="match_parent"
                     android:layout_margin="2px"
                     android:layout_weight="1"
-                    android:text="14:00 - 15:00" />
+                    android:text="12:00-13:00" />
+
+                <Button
+                    android:id="@+id/horario8"
+                    style="@style/textohorario"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="match_parent"
+                    android:layout_margin="2px"
+                    android:layout_weight="1"
+                    android:text="13:00-14:00" />
+
+                <Button
+                    android:id="@+id/horario9"
+                    style="@style/textohorario"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="match_parent"
+                    android:layout_margin="2px"
+                    android:layout_weight="1"
+                    android:text="14:00-15:00" />
 
                 <Button
                     android:id="@+id/horario10"
-                    android:layout_width="match_parent"
                     style="@style/textohorario"
+                    android:layout_width="match_parent"
 
                     android:layout_height="match_parent"
                     android:layout_margin="2px"
                     android:layout_weight="1"
-                    android:text="15:00 - 16:00" />
+                    android:text="15:00-16:00" />
 
-                <Button
-                    android:id="@+id/horario11"
-                    android:layout_width="match_parent"
-                    style="@style/textohorario"
-
-                    android:layout_height="match_parent"
-                    android:layout_margin="2px"
-                    android:layout_weight="1"
-                    android:text="16:00 - 17:00" />
-
-                <Button
-                    android:id="@+id/horario12"
-                    android:layout_width="match_parent"
-                    style="@style/textohorario"
-
-                    android:layout_height="match_parent"
-                    android:layout_margin="2px"
-                    android:layout_weight="1"
-                    android:text="17:00 - 18:00" />
 
             </TableRow>
 
-            <!--
-                            <TableRow
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
 
 
-                            </TableRow>
-                            -->
+
+                <Button
+                    android:id="@+id/horario11"
+                    style="@style/textohorario"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="match_parent"
+                    android:layout_margin="2px"
+                    android:layout_weight="1"
+                    android:text="16:00-17:00" />
+
+                <Button
+                    android:id="@+id/horario12"
+                    style="@style/textohorario"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="match_parent"
+                    android:layout_margin="2px"
+                    android:layout_weight="1"
+                    android:text="17:00-18:00" />
+
+
+                <Button
+                    android:id="@+id/horario13"
+                    style="@style/textohorario"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="match_parent"
+                    android:layout_margin="2px"
+                    android:layout_weight="1"
+                    android:text="18:00-19:00" />
+
+                <Button
+                    android:id="@+id/horario14"
+                    style="@style/textohorario"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="match_parent"
+                    android:layout_margin="2px"
+                    android:layout_weight="1"
+                    android:text="19:00-20:00" />
+
+                <Button
+                    android:id="@+id/horario15"
+                    style="@style/textohorario"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="match_parent"
+                    android:layout_margin="2px"
+                    android:layout_weight="1"
+                    android:text="20:00-21:00" />
+
+            </TableRow>
+
+
+           <TableRow
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
+
+               <Button
+                   android:id="@+id/horario16"
+                   style="@style/textohorario"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_margin="2px"
+                   android:layout_weight="1"
+                   android:text="21:00-22:00" />
+
+
+               <Button
+                   android:id="@+id/horario17"
+                   style="@style/textohorario"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_margin="2px"
+                   android:layout_weight="1"
+                   android:text="22:00-23:00" />
+
+
+
+
+               <Button
+                   android:id="@+id/horario18"
+                   style="@style/textohorario"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_margin="2px"
+                   android:backgroundTint="@color/verde"
+                   android:layout_weight="1"
+                   android:text="23:00-24:00" />
+
+
+           </TableRow>
+
 
 
         </TableLayout>
