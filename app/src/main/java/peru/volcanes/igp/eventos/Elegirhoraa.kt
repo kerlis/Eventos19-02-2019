@@ -128,6 +128,14 @@ class Elegirhoraa : AppCompatActivity()  {
     lateinit var dateformatx:SimpleDateFormat
     lateinit var convertdate:Date
 
+
+
+
+    lateinit var dia_tomado: String
+    lateinit var mes_tomado: String
+    lateinit var anio_tomado: String
+
+
     @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -251,7 +259,7 @@ class Elegirhoraa : AppCompatActivity()  {
 
             dia2 = calendario.selectedDate.day.toString()
             mes2 = calendario.selectedDate.month.toString()
-            valint2 = mes2.toInt() - 1
+            valint2 = mes2.toInt() + 1
             valtostring2 = valint2.toString()
             anio2 = calendario.selectedDate.year.toString()
 
@@ -265,7 +273,7 @@ class Elegirhoraa : AppCompatActivity()  {
             anio = calendar.time.year.toString()
 */
 
-            Toast.makeText(this, dia2+valtostring2+anio2 , Toast.LENGTH_LONG).show()
+            Toast.makeText(this, dia2+mes2+anio2+calendar , Toast.LENGTH_LONG).show()
 
 
 
@@ -410,8 +418,21 @@ class Elegirhoraa : AppCompatActivity()  {
             valorhorario = horario1.getText() as String;
             var de:String =  horario1.backgroundTintList.defaultColor.toString()
             Toast.makeText(this, de, Toast.LENGTH_LONG).show()
+
+            if(dia!="" && mes!="" &&  anio!=""){
+                 dia_tomado = dia
+                 mes_tomado = valtostring
+                 anio_tomado = anio
+            }
+            else{
+                dia_tomado = dia2
+                mes_tomado = valtostring2
+                anio_tomado = anio2
+            }
+            Toast.makeText(this, "fecha tomada" + dia_tomado+mes_tomado+anio_tomado, Toast.LENGTH_LONG).show()
+
             if(de == "-16720798"){
-                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario1")
+                showNewNameDialog(valorhorario, mes_tomado , dia_tomado, anio_tomado, "horario1")
             }
             else{
                 Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
@@ -422,8 +443,22 @@ class Elegirhoraa : AppCompatActivity()  {
             valorhorario = horario2.getText() as String;
             var de:String =  horario2.backgroundTintList.defaultColor.toString()
             Toast.makeText(this, de, Toast.LENGTH_LONG).show()
+
+            if(dia!="" && mes!="" &&  anio!=""){
+                dia_tomado = dia
+                mes_tomado = valtostring
+                anio_tomado = anio
+            }
+            else{
+                dia_tomado = dia2
+                mes_tomado = valtostring2
+                anio_tomado = anio2
+            }
+
+            Toast.makeText(this, "fecha tomada" + dia_tomado+mes_tomado+anio_tomado, Toast.LENGTH_LONG).show()
+
             if(de == "-16720798"){
-                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario2")
+                showNewNameDialog(valorhorario, mes_tomado , dia_tomado, anio_tomado, "horario2")
             }
             else{
                 Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
@@ -435,13 +470,29 @@ class Elegirhoraa : AppCompatActivity()  {
             //Toast.makeText(this, valorhorario, Toast.LENGTH_LONG).show();
             var de:String =  horario3.backgroundTintList.defaultColor.toString()
             Toast.makeText(this, de, Toast.LENGTH_LONG).show()
+
+
+            if(dia!="" && mes!="" &&  anio!=""){
+                dia_tomado = dia
+                mes_tomado = valtostring
+                anio_tomado = anio
+            }
+            else{
+                dia_tomado = dia2
+                mes_tomado = valtostring2
+                anio_tomado = anio2
+            }
+            Toast.makeText(this, "fecha tomada" + dia_tomado+mes_tomado+anio_tomado, Toast.LENGTH_LONG).show()
+
             if(de == "-16720798"){
-                showNewNameDialog(valorhorario, dia+"/"+mes+"/"+anio, "horario3")
+                showNewNameDialog(valorhorario,mes_tomado , dia_tomado, anio_tomado, "horario3")
             }
             else{
                 Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
             }
         }
+
+        /*
 
         horario4.setOnClickListener {
             valorhorario = horario4.getText() as String;
@@ -659,6 +710,7 @@ class Elegirhoraa : AppCompatActivity()  {
                 Toast.makeText(this, "El horario ya esta reservado", Toast.LENGTH_LONG).show()
             }
         }
+        */
 
 
         sliderz = findViewById<View>(R.id.sliderz) as ImageView
@@ -681,7 +733,10 @@ class Elegirhoraa : AppCompatActivity()  {
 
 
     @SuppressLint("SetTextI18n")
-    fun showNewNameDialog(horarioval: String, fechaval:String, horariox: String) {
+    fun showNewNameDialog(horarioval: String, mes_value:String,dia_value:String,anio_value:String, horariox: String) {
+
+       // Toast.makeText(this, fechaval, Toast.LENGTH_LONG).show()
+
         val dialogBuilder = AlertDialog.Builder(this)
         val inflater = this.layoutInflater
         val dialogView = inflater.inflate(R.layout.dislogo, null)
@@ -722,10 +777,6 @@ class Elegirhoraa : AppCompatActivity()  {
 
         botonpagar.setOnClickListener {
 
-
-
-
-
             if(horariox == "horario1"){
                horario1.setBackgroundColor(Color.parseColor("#d62e2e"))
             }
@@ -743,173 +794,26 @@ class Elegirhoraa : AppCompatActivity()  {
             var reporteid = ref.push().key
 
 
+            fecha.text =  dia_value+mes_value+anio_value
+            reservas    =   reservas(dia_value+mes_value+anio_value , horarioval,distrito_val,distrito_val+"_"+distrito_val,distrito_val,dia_value+mes_value+anio_value+"_"+horarioval,nombre_val,local_val)
 
 
-
-
-            if(valk.length < 4){
-                fecha.text = dia2+mes2+anio2
-                reservas    =   reservas(dia2+valtostring2+anio2 , horarioval,distrito_val,distrito_val+"_"+distrito_val,distrito_val,dia2+valtostring2+anio2+"_"+horarioval,nombre_val,local_val)
-
-
-                if(valtostring2.equals("1 ")){
-                    mesarreglado = "01"
-                }
-                else if(valtostring2.equals("2 ")){
-                    mesarreglado = "02"
-
-                }
-                else if(valtostring2.equals("3 ")){
-                    mesarreglado = "03"
-
-                }
-                else if(valtostring2.equals("4 ")){
-                    mesarreglado = "04"
-
-                }
-                else if(valtostring2.equals("5 ")){
-                    mesarreglado = "05"
-
-                }
-                else if(valtostring2.equals("6 ")){
-                    mesarreglado = "06"
-
-                }
-                else if(valtostring2.equals("7 ")){
-                    mesarreglado = "07"
-
-                }
-                else if(valtostring2.equals("8 ")){
-                    mesarreglado = "08"
-
-                }
-                else if(valtostring2.equals("9 ")){
-                    mesarreglado = "09"
-
-                }
-                else if(valtostring2.equals("10 ")){
-                    mesarreglado = "10"
-
-                }
-                else if(valtostring2.equals("11 ")){
-                    mesarreglado = "11"
-
-                }
-                else if(valtostring2.equals("12 ")){
-                    mesarreglado = "12"
-
-                }
-                else{
-                    mesarreglado = "kkk"
-
-                }
-
-
-                datestringx = valtostring2+"/"+dia2+"/"+anio2
+                datestringx = mes_value+"/"+dia_value+"/"+anio_value
                 dateformatx = SimpleDateFormat("mm/dd/yyyy")
                 convertdate = Date()
                 convertdate = dateformatx.parse(datestringx)
 
 
                 val intent = Intent(this,Pagarreserva::class.java)
-                intent.putExtra("FECHA", anio2+"/"+valtostring2+"/"+dia2)
-                intent.putExtra("FECHARESERVA", anio2+"-"+valtostring2+"-"+dia2+" "+"00:00:00")
+                intent.putExtra("FECHA", anio_value+"/"+mes_value+"/"+dia_value)
+                intent.putExtra("FECHARESERVA", anio_value+"-"+mes_value+"-"+dia_value+" "+"00:00:00")
 
 
                 intent.putExtra("HORA", horarioval.toString())
                 intent.putExtra("DEPARTAMENTO", distrito_val)
                 intent.putExtra("DEPARTAMENTO_DISTRITO",distrito_val+"_"+distrito_val)
                 intent.putExtra("DISTRITO",distrito_val)
-                intent.putExtra("FECHA_HORA",dia2+valtostring2+anio2+"_"+horarioval)
-                intent.putExtra("CANCHA_NOMBRE", nombre_val)
-                intent.putExtra("LOCAL", local_val)
-
-                intent.putExtra("LOCALID", localid)
-                intent.putExtra("CANCHAID", canchaid)
-
-
-
-
-
-                startActivity(intent)
-            }
-            else{
-
-
-                if(valtostring2.equals("1 ")){
-                    mesarreglado = "01"
-                }
-                else if(valtostring2.equals("2 ")){
-                    mesarreglado = "02"
-
-                }
-                else if(valtostring2.equals("3 ")){
-                    mesarreglado = "03"
-
-                }
-                else if(valtostring2.equals("4 ")){
-                    mesarreglado = "04"
-
-                }
-                else if(valtostring2.equals("5 ")){
-                    mesarreglado = "05"
-
-                }
-                else if(valtostring2.equals("6 ")){
-                    mesarreglado = "06"
-
-                }
-                else if(valtostring2.equals("7 ")){
-                    mesarreglado = "07"
-
-                }
-                else if(valtostring2.equals("8 ")){
-                    mesarreglado = "08"
-
-                }
-                else if(valtostring2.equals("9 ")){
-                    mesarreglado = "09"
-
-                }
-                else if(valtostring2.equals("10 ")){
-                    mesarreglado = "10"
-
-                }
-                else if(valtostring2.equals("11 ")){
-                    mesarreglado = "11"
-
-                }
-                else if(valtostring2.equals("12 ")){
-                    mesarreglado = "12"
-
-                }
-                else{
-                    mesarreglado = "kkk"
-
-                }
-
-
-                fecha.text =  dia+mes+anio
-                reservas    =   reservas(dia+valtostring+anio , horarioval,distrito_val,distrito_val+"_"+distrito_val,distrito_val,dia+valtostring+anio+"_"+horarioval,nombre_val,local_val)
-
-                datestringx = valtostring+"/"+dia+"/"+anio
-                dateformatx = SimpleDateFormat("mm/dd/yyyy")
-                convertdate = Date()
-                convertdate = dateformatx.parse(datestringx)
-
-
-
-
-
-                val intent = Intent(this,Pagarreserva::class.java)
-                intent.putExtra("FECHA", anio+"/"+valtostring+"/"+dia)
-                intent.putExtra("FECHARESERVA", anio+"-"+valtostring+"-"+dia+" "+"00:00:00")
-
-                intent.putExtra("HORA", horarioval)
-                intent.putExtra("DEPARTAMENTO", distrito_val)
-                intent.putExtra("DEPARTAMENTO_DISTRITO",distrito_val+"_"+distrito_val)
-                intent.putExtra("DISTRITO",distrito_val)
-                intent.putExtra("FECHA_HORA",dia+valtostring+anio+"_"+horarioval)
+                intent.putExtra("FECHA_HORA",dia_value+mes_value+anio_value+"_"+horarioval)
                 intent.putExtra("CANCHA_NOMBRE", nombre_val)
                 intent.putExtra("LOCAL", local_val)
 
@@ -917,14 +821,65 @@ class Elegirhoraa : AppCompatActivity()  {
                 intent.putExtra("CANCHAID", canchaid)
 
                 startActivity(intent)
-
-
-            }
 
             ref.child(reporteid).setValue(reservas).addOnCompleteListener {
-            Toast.makeText(this, "Artist added", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "xxx"+anio_value+"-"+mes_value+"-"+dia_value+" "+"00:00:00", Toast.LENGTH_LONG).show();
             }
         }
+
+
+        botonsoloreservar.setOnClickListener {
+
+            if(horariox == "horario1"){
+                horario1.setBackgroundColor(Color.parseColor("#d62e2e"))
+            }
+            else if (horariox == "horario2"){
+                horario2.setBackgroundColor(Color.parseColor("#d62e2e"))
+            }
+            else if (horariox == "horario3"){
+                horario3.setBackgroundColor(Color.parseColor("#d62e2e"))
+            }
+
+
+            //  horariox.setBackgroundColor(Color.parseColor("#d62e2e"))
+
+            var ref = FirebaseDatabase.getInstance().getReference("reservas").child("reportes")
+            var reporteid = ref.push().key
+
+
+            fecha.text =  dia_value+mes_value+anio_value
+            reservas    =   reservas(dia_value+mes_value+anio_value , horarioval,distrito_val,distrito_val+"_"+distrito_val,distrito_val,dia_value+mes_value+anio_value+"_"+horarioval,nombre_val,local_val)
+
+
+            datestringx = mes_value+"/"+dia_value+"/"+anio_value
+            dateformatx = SimpleDateFormat("mm/dd/yyyy")
+            convertdate = Date()
+            convertdate = dateformatx.parse(datestringx)
+
+
+            val intent = Intent(this,Soloreservar::class.java)
+            intent.putExtra("FECHA", anio_value+"/"+mes_value+"/"+dia_value)
+            intent.putExtra("FECHARESERVA", anio_value+"-"+mes_value+"-"+dia_value+" "+"00:00:00")
+
+
+            intent.putExtra("HORA", horarioval.toString())
+            intent.putExtra("DEPARTAMENTO", distrito_val)
+            intent.putExtra("DEPARTAMENTO_DISTRITO",distrito_val+"_"+distrito_val)
+            intent.putExtra("DISTRITO",distrito_val)
+            intent.putExtra("FECHA_HORA",dia_value+mes_value+anio_value+"_"+horarioval)
+            intent.putExtra("CANCHA_NOMBRE", nombre_val)
+            intent.putExtra("LOCAL", local_val)
+
+            intent.putExtra("LOCALID", localid)
+            intent.putExtra("CANCHAID", canchaid)
+
+            startActivity(intent)
+
+            ref.child(reporteid).setValue(reservas).addOnCompleteListener {
+                Toast.makeText(this, "xxx"+anio_value+"-"+mes_value+"-"+dia_value+" "+"00:00:00", Toast.LENGTH_LONG).show();
+            }
+        }
+
 
 
         val b = dialogBuilder.create()

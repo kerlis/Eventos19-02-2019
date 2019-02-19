@@ -14,7 +14,7 @@ import peru.volcanes.igp.eventos.m_model.usuario
 import java.io.IOException
 
 class Registrarusuario : AppCompatActivity() {
-    private val BASE_URL = "http://arteypixel.com/appreserva/consultarusuario.php"
+    private val BASE_URL = "http://arteypixel.com/appreserva/registrar_usuario_app.php"
     private val client = OkHttpClient()
     internal var TAG_REGISTER: String? = null
     lateinit var usuario: usuario
@@ -26,7 +26,8 @@ class Registrarusuario : AppCompatActivity() {
     lateinit var password_val:String
     lateinit var rgistrar_val:String
     lateinit var nombres: EditText
-    lateinit var apellidos: EditText
+    lateinit var
+            apellidos: EditText
     lateinit var email: EditText
     lateinit var telefono: EditText
     lateinit var dni: EditText
@@ -38,7 +39,7 @@ class Registrarusuario : AppCompatActivity() {
         setContentView(R.layout.activity_registrarusuario)
 
         nombres = findViewById(R.id.nombre) as EditText
-        apellidos  = findViewById(R.id.apellidos) as EditText
+      //  apellidos  = findViewById(R.id.apellidos) as EditText
         email = findViewById(R.id.email) as EditText
         telefono  = findViewById(R.id.telefono) as EditText
         dni  = findViewById(R.id.dni) as EditText
@@ -46,7 +47,7 @@ class Registrarusuario : AppCompatActivity() {
         registrar = findViewById(R.id.registrar) as Button
 
         nombres.setHintTextColor(Color.WHITE)
-        apellidos.setHintTextColor(Color.WHITE)
+       // apellidos.setHintTextColor(Color.WHITE)
         email.setHintTextColor(Color.WHITE)
         telefono.setHintTextColor(Color.WHITE)
         dni.setHintTextColor(Color.WHITE)
@@ -58,28 +59,28 @@ class Registrarusuario : AppCompatActivity() {
             var reporteid = ref.push().key
 
             nombres_val = nombres.text.toString()
-            apellidos_val = apellidos.text.toString()
+          //  apellidos_val = apellidos.text.toString()
             email_val = email.text.toString()
             telefono_val = telefono.text.toString()
             dni_val =   dni.text.toString()
             password_val =  password.text.toString()
             rgistrar_val =  registrar.text.toString()
-            usuario    =   usuario(nombres_val,apellidos_val,email_val,telefono_val,dni_val,password_val)
+            usuario    =   usuario(nombres_val,email_val,telefono_val,dni_val,password_val)
 
             ref.child(reporteid).setValue(usuario).addOnCompleteListener {
                 Toast.makeText(this, "Usuario registrado", Toast.LENGTH_LONG).show();
 
             }
 
-            registerUser(nombres_val,apellidos_val,email_val,telefono_val,dni_val,password_val)
+            registerUser(nombres_val,email_val,telefono_val,dni_val,password_val)
         }
 
     }
 
 
-    fun registerUser(nombres: String, apellidos: String, email:String, telefono:String, dni:String, password:String) {
+    fun registerUser(nombreusuario: String, email:String, telefono:String, dni:String, password:String) {
         val body = FormBody.Builder()
-                .add("Nuevousuario", "$nombres,$apellidos,$email,$telefono,$dni,$password")
+                .add("Nuevousuario", "$nombreusuario&$email&$telefono&$dni&$password")
                 .build()
         val request = Request.Builder().url(BASE_URL).post(body).build()
         val call = client.newCall(request)
@@ -105,7 +106,19 @@ class Registrarusuario : AppCompatActivity() {
                     } else {
                         ver2(resp)
                     }*/
+
+
+
+
+
+                    ver2(resp)
+
                     if (response.isSuccessful) {
+
+
+
+
+
                     } else {
 
                     }
@@ -118,7 +131,18 @@ class Registrarusuario : AppCompatActivity() {
     }
 
 
+    private fun ver2(dato:String) {
 
+        //   val intent = Intent(this,Elegirhoraa::class.java)
+
+        val intent7: Intent = Intent(this, Login::class.java)
+
+        startActivity(intent7)
+
+
+
+        runOnUiThread { Toast.makeText(applicationContext, "Status = $dato", Toast.LENGTH_LONG).show() }
+    }
 
 
 

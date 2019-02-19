@@ -187,8 +187,7 @@ tools:context=".Pagarreserva">
             android:background="@drawable/border"
             android:ems="10"
             android:hint="Año"
-            android:inputType="number"
-            android:maxLength="2" />
+            android:inputType="number" />
 
         <EditText
             android:id="@+id/txt_cvv"

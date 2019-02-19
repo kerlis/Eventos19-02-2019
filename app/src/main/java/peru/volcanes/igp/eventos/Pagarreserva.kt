@@ -57,6 +57,8 @@ class Pagarreserva : AppCompatActivity() {
 
     private val client = OkHttpClient()
     private val BASE_URL = "http://arteypixel.com/appreserva/pagarreserva.php"
+    private val BASE_URL2 = "https://arteypixel.com/appreserva/culqi-php-master/examples/01-create-token.php"
+
     internal var TAG_REGISTER: String? = null
 
 
@@ -109,7 +111,7 @@ class Pagarreserva : AppCompatActivity() {
 
 
 
-        Toast.makeText(this, fecha  + " - " + hora + " - " + departamento + " - " + departamento_distrito + " - " + distrito + " - " + fecha_hora + " - " + cancha_nombre + " - "  + local, Toast.LENGTH_LONG).show()
+        //Toast.makeText(this, fecha  + " - " + hora + " - " + departamento + " - " + departamento_distrito + " - " + distrito + " - " + fecha_hora + " - " + cancha_nombre + " - "  + local, Toast.LENGTH_LONG).show()
 
 
 
@@ -238,7 +240,7 @@ class Pagarreserva : AppCompatActivity() {
             valcvv = txt_cvv.text.toString()
             val_codigopostal = txt_codigopostal.text.toString()
 
-            Toast.makeText(this, val_nombretarjeta+"-"+val_cardnumber+"-"+val_month+"-"+val_year+"-"+valcvv+"-"+val_codigopostal, Toast.LENGTH_LONG).show()
+        //    Toast.makeText(this, val_nombretarjeta+"-"+val_cardnumber+"-"+val_month+"-"+val_year+"-"+valcvv+"-"+val_codigopostal, Toast.LENGTH_LONG).show()
 
 
             fecha = i.extras!!.getString("FECHA")
@@ -335,6 +337,7 @@ class Pagarreserva : AppCompatActivity() {
                     }
 */
                     ver2(resp)
+                    subirpago(val_nombretarjeta!!, val_cardnumber!!, val_month!!, val_year!!, valcvv!!)
 
 
                     if (response.isSuccessful) {
@@ -349,6 +352,54 @@ class Pagarreserva : AppCompatActivity() {
 
         })
     }
+
+
+    fun subirpago(nombre_tarjeta: String,
+                      numero_tarjeta: String,
+                      mes_tarjeta:String,
+                      anio_tarjeta:String,
+                      ccv_tarjeta: String) {
+
+        val Registered: Boolean?
+        val usuario: String?
+        val password: String?
+
+        val sharedPref = PreferenceManager.getDefaultSharedPreferences(this)
+        Registered = sharedPref.getBoolean("Registered", false)
+        usuario = sharedPref.getString("Username", "")
+        password = sharedPref.getString("Password", "")
+
+        val body = FormBody.Builder()
+                .add("VALORESTARJETA", "$nombre_tarjeta&$numero_tarjeta&$mes_tarjeta&$anio_tarjeta&$ccv_tarjeta")
+                .build()
+        val request = Request.Builder().url(BASE_URL2).post(body).build()
+        val call = client.newCall(request)
+        call.enqueue(object : Callback {
+
+            override fun onFailure(call: Call, e: IOException) {
+                println("Registration Error" + e.message)
+
+            }
+
+            @Throws(IOException::class)
+            override fun onResponse(call: Call, response: Response) {
+                try {
+                    val resp = response.body().string()
+                    Log.v(TAG_REGISTER, resp)
+                    //ver2(resp)
+                    if (response.isSuccessful) {
+                    } else {
+
+                    }
+                } catch (e: IOException) {
+                    // Log.e(TAG_REGISTER, "Exception caught: ", e);
+                    println("Exception caught" + e.message)
+                }
+            }
+
+        })
+    }
+
 
 
     private fun ver2(dato: String) {

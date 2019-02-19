@@ -50,8 +50,8 @@ android:orientation="vertical">
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_below="@+id/distrito"
-        android:background="@color/rojo"
-        android:text="PAGAR AHORA >>"
+        android:backgroundTint="@color/rojo"
+         android:text="PAGAR AHORA >>"
         android:textColor="@color/blanco" />
 
     <Button
@@ -60,7 +60,7 @@ android:orientation="vertical">
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_below="@+id/pagarahora"
-        android:background="@color/amarillo"
+        android:backgroundTint="@color/amarillo"
         android:text="SOLO RESERVAR >>"
         android:textColor="@color/blanco" />
 

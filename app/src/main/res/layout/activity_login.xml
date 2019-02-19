@@ -50,7 +50,8 @@
             android:layout_marginTop="30dp"
             android:layout_marginRight="20dp"
             android:background="@color/blanco"
-            android:hint="  USUARIO"
+            android:hint="  USUARIO NOMBRE
+"
             android:padding="5dp" />
 
         <EditText

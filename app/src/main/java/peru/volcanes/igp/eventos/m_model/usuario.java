@@ -2,27 +2,18 @@ package peru.volcanes.igp.eventos.m_model;
 
 public class usuario {
 
-    String nombres;
-    String apellidos;
+    String nombreusuario;
     String email;
     String telefono;
     String dni;
     String password;
 
-    public String getNombres() {
-        return nombres;
+    public String getNombreusuario() {
+        return nombreusuario;
     }
 
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setNombreusuario(String nombreusuario) {
+        this.nombreusuario = nombreusuario;
     }
 
     public String getEmail() {
@@ -58,9 +49,8 @@ public class usuario {
     }
 
 
-    public usuario(String nombres, String apellidos, String email, String telefono, String dni, String password) {
-        this.nombres = nombres;
-        this.apellidos = apellidos;
+    public usuario(String nombreusuario, String email, String telefono, String dni, String password) {
+        this.nombreusuario = nombreusuario;
         this.email = email;
         this.telefono = telefono;
         this.dni = dni;

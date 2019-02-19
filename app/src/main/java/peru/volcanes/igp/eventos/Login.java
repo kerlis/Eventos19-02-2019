@@ -148,7 +148,10 @@ public class Login extends AppCompatActivity {
                 try {
                     final String resp = response.body().string();
 
-                    Log.v(TAG_REGISTER,resp);
+
+                    Integer vd = resp.length();
+                    Log.v(TAG_REGISTER,"respueta: "+resp + vd);
+
 /*
                     new Handler(Looper.getMainLooper().getMainLooper()).post(new Runnable() {
                         @Override
@@ -158,7 +161,7 @@ public class Login extends AppCompatActivity {
                     });
 */
 
-                    if(resp.length() > 5){
+                    if(resp.length() > 8){
                         Intent intent7 = new Intent(Login.this,Seleccionarcanchas.class);
                         startActivity(intent7);
 
@@ -168,11 +171,14 @@ public class Login extends AppCompatActivity {
                         editor.putString("Username",resp);
                         editor.putString("Password", resp);
                         editor.apply();
+                        ver2(resp);
 
 
 
                     }
                     else{
+                        Intent intent7 = new Intent(Login.this,Login.class);
+                        startActivity(intent7);
                         ver2(resp);
                     }
 
